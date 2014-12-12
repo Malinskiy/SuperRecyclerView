@@ -1,0 +1,1066 @@
+<resources>
+    <string-array name="classics">
+        <item>ABEL, Carl Friedrich</item>
+        <item>ADAM, Adolphe-Charles</item>
+        <item>ADAMS, John</item>
+        <item>AGRICOLA, Alexander</item>
+        <item>ALAIN, Jehan</item>
+        <item>ALBENIZ, Isaac</item>
+        <item>ALBINONI, Tomaso</item>
+        <item>ALBRECHTSBERGER, Johann Georg</item>
+        <item>ALFONSO X "El Sabio"</item>
+        <item>ALKAN, Charles-Valentin</item>
+        <item>ALLEGRI, Georgio</item>
+        <item>ALWYN, William</item>
+        <item>ANGELO, Gioachino</item>
+        <item>ANTHEIL, George</item>
+        <item>ARCADELT, Jacob</item>
+        <item>ARNE, Thomas Augustine</item>
+        <item>ARNOLD, Malcolm</item>
+        <item>ATTERBERG, Kurt</item>
+        <item>AUBER, Daniel-François</item>
+        <item>BABBITT, Milton</item>
+        <item>BACEWICZ, Grażyna</item>
+        <item>BACH, Carl Philipp Emanuel</item>
+        <item>BACH, Johann Christian</item>
+        <item>BACH, Johann Sebastian</item>
+        <item>BACH, Wilhelm Friedemann</item>
+        <item>BARBER, Samuel</item>
+        <item>BACON, Ernst</item>
+        <item>BARRAQUÉ, Jean</item>
+        <item>BARTÓK, Béla</item>
+        <item>BAX, Arnold</item>
+        <item>BEETHOVEN, Ludwig van</item>
+        <item>BELLINI, Vincenzo</item>
+        <item>BERG, Alban</item>
+        <item>BERIO, Luciano</item>
+        <item>BERLIOZ, Hector</item>
+        <item>BERNSTEIN, Leonard</item>
+        <item>BERWALD, Franz</item>
+        <item>BIBER, Heinrich Ignaz</item>
+        <item>BINCHOIS, Gilles</item>
+        <item>BIZET, Georges</item>
+        <item>BLOCH, Ernest</item>
+        <item>BOCCHERINI, Luigi</item>
+        <item>BOÏELDIEU, François-Adrien</item>
+        <item>BOÏTO, Arrigo</item>
+        <item>BONI, Guillaume</item>
+        <item>BORODIN, Alexander</item>
+        <item>BOULEZ, Pierre</item>
+        <item>BOYCE, William</item>
+        <item>BRAHMS, Johannes</item>
+        <item>BRIAN, Havergal</item>
+        <item>BRIDGE, Frank</item>
+        <item>BRITTEN, Benjamin</item>
+        <item>BRUCH, Max</item>
+        <item>BRUCKNER, Anton</item>
+        <item>BRUMEL, Antoine</item>
+        <item>BRYARS, Gavin</item>
+        <item>BULL, John</item>
+        <item>BUSNOYS, Antoine</item>
+        <item>BUSONI, Ferruccio</item>
+        <item>BUXTEHUDE, Dietrich</item>
+        <item>BYRD, William</item>
+        <item>CABEZON, Antonio de</item>
+        <item>CACCINI, Giulio</item>
+        <item>CAGE, John</item>
+        <item>CALDARA, Antonio</item>
+        <item>CARTER, Elliott</item>
+        <item>CARULLI, Ferdinando</item>
+        <item>CARVER, Robert</item>
+        <item>CATOIRE, Georgi Lvovitch</item>
+        <item>CHABRIER, Emmanuel</item>
+        <item>CHARPENTIER, Gustave</item>
+        <item>CHARPENTIER, Marc-Antoine</item>
+        <item>CHAUSSON, Ernest</item>
+        <item>CHOPIN, Frédéric</item>
+        <item>CICONIA, Johannes</item>
+        <item>CILÈA, Francesco</item>
+        <item>CIMAROSA, Domenico</item>
+        <item>COPLAND, Aaron</item>
+        <item>CORELLI, Arcangelo</item>
+        <item>CORNAGO, Johannes</item>
+        <item>CORNET, Pieter</item>
+        <item>CORNYSH, William</item>
+        <item>CORRETTE, Michel</item>
+        <item>COUPERIN, François</item>
+        <item>CRUMB, George</item>
+        <item>CRUSELL, Bernhard Henrik</item>
+        <item>D\'ANGLEBERT, Jean-Henri</item>
+        <item>DALLAPICCOLA, Luigi</item>
+        <item>DANZI, Franz</item>
+        <item>DAVIES, Peter Maxwell</item>
+        <item>DEBUSSY, Claude</item>
+        <item>DELALANDE, Michel Richard</item>
+        <item>DELIBES, Léo</item>
+        <item>DELIUS, Frederick</item>
+        <item>DELLO JOIO, Norman</item>
+        <item>DIAMOND, David</item>
+        <item>DITTERSDORF, Karl Ditters von</item>
+        <item>DOHNÁNYI, Ernõ</item>
+        <item>DONIZETTI, Gaetano</item>
+        <item>DOWLAND, John</item>
+        <item>DU CAURROY, Eustache</item>
+        <item>DUFAY, Guillaume</item>
+        <item>DUKAS, Paul</item>
+        <item>DURUFLÉ, Maurice</item>
+        <item>DVOŘÁK, Antonín</item>
+        <item>EISLER, Hanns</item>
+        <item>ELGAR, Edward</item>
+        <item>ENESCO, Georges</item>
+        <item>ERKEL, Ferenc</item>
+        <item>FALLA, Manuel de</item>
+        <item>FANO, Guido Alberto</item>
+        <item>FASCH, Johann Friederich</item>
+        <item>FAURÉ, Gabriel</item>
+        <item>FAYRFAX, Robert</item>
+        <item>FELDMAN, Morton</item>
+        <item>FERNEYHOUGH, Brian</item>
+        <item>FIELD, John</item>
+        <item>FINZI, Gerald</item>
+        <item>FISCHER, Johann Caspar</item>
+        <item>FOOTE, Arthur</item>
+        <item>FRANCK, César</item>
+        <item>FRANKEL, Benjamin</item>
+        <item>FRESCOBALDI, Girolamo</item>
+        <item>FROBERGER, Johann Jakob</item>
+        <item>FRYE, Walter</item>
+        <item>GILBERT &amp; SULLIVAN</item>
+        <item>GABRIELI, Giovanni</item>
+        <item>GADE, Niels Wilhelm</item>
+        <item>GAY &amp; PEPUSCH</item>
+        <item>GEMINIANI, Francesco</item>
+        <item>GERSHWIN, George</item>
+        <item>GESUALDO, Don Carlo</item>
+        <item>GIBBONS, Orlando</item>
+        <item>GINASTERA, Alberto</item>
+        <item>GIORDANO, Umberto</item>
+        <item>GIULIANI, Mauro</item>
+        <item>GLASS, Philip</item>
+        <item>GLAZUNOV, Alexander</item>
+        <item>GLIÈRE, Reinhold</item>
+        <item>GLINKA, Mikhail</item>
+        <item>GLUCK, Christoph Willibald</item>
+        <item>GOLDBERG, Johann Gottlieb</item>
+        <item>GOMBERT, Nicholas</item>
+        <item>GÓRECKI, Henryk</item>
+        <item>GOTTSCHALK, Louis Moreau</item>
+        <item>GOULD, Morton</item>
+        <item>GOUNOD, Charles</item>
+        <item>GRAINGER, Percy Aldridge</item>
+        <item>GRANADOS, Enrique</item>
+        <item>Gregorian Chant</item>
+        <item>GRIEG, Edvard</item>
+        <item>GRIFFES, Charles Tomlinson</item>
+        <item>GRIGNY, Nicolas de</item>
+        <item>GUBAIDULINA, Sofia</item>
+        <item>HANDEL, George Frideric</item>
+        <item>HANSON, Howard</item>
+        <item>HARRIS, Roy</item>
+        <item>HARRISON, Lou</item>
+        <item>HARTMANN, Karl Amadeus</item>
+        <item>HASSE, Johann Adolf</item>
+        <item>HAYDN, Franz Joseph</item>
+        <item>HEBDEN, John</item>
+        <item>HEBENSTREIT, Pantaleon</item>
+        <item>HEINICHEN, Johann David</item>
+        <item>HENZE, Hans Werner</item>
+        <item>HILDEGARD von Bingen</item>
+        <item>HINDEMITH, Paul</item>
+        <item>HOIBY, Lee</item>
+        <item>HOLST, Gustav</item>
+        <item>HONEGGER, Arthur</item>
+        <item>HOVHANESS, Alan</item>
+        <item>HOWELLS, Herbert</item>
+        <item>HUMMEL, Johann Nepomuk</item>
+        <item>HUMPERDINCK, Engelbert</item>
+        <item>IBERT, Jacques</item>
+        <item>D\'INDY, Vincent</item>
+        <item>ISAAC, Heinrich</item>
+        <item>IVES, Charles</item>
+        <item>JANÁCEK, Leos</item>
+        <item>JANEQUIN, Clément</item>
+        <item>JENKINS, John</item>
+        <item>JOPLIN, Scott</item>
+        <item>DES PREZ, Josquin</item>
+        <item>KHACHATURIAN, Aram</item>
+        <item>KHRENNIKOV, Tikhon</item>
+        <item>KINLOCH, William</item>
+        <item>KODÁLY, Zoltán</item>
+        <item>KOKKONEN, Joonas</item>
+        <item>KRENEK, Ernst</item>
+        <item>KROMMER, Franz</item>
+        <item>LALO, Édouard</item>
+        <item>LAMB, John David</item>
+        <item>LANDINI, Francesco</item>
+        <item>LA RUE, Pierre de</item>
+        <item>LARSSON, Lars-Erik</item>
+        <item>LASSUS, Orlandus</item>
+        <item>LAWES, William</item>
+        <item>LECLAIR, Jean Marie</item>
+        <item>LEHÁR, Franz</item>
+        <item>LE JEUNE, Claude</item>
+        <item>LEONCAVALLO, Ruggero</item>
+        <item>LEVANT, Oscar</item>
+        <item>LIGETI, György</item>
+        <item>LILBURN, Douglas</item>
+        <item>LINDBERG, Magnus</item>
+        <item>LISZT, Franz</item>
+        <item>LOCATELLI, Pietro</item>
+        <item>LOCKE, Matthew</item>
+        <item>LOEILLET, Jean Baptiste</item>
+        <item>LOTTI, Antonio</item>
+        <item>LULLY, Jean Baptiste</item>
+        <item>LUTOSLAWSKI, Witold</item>
+        <item>LUZZASCHI, Luzzasco</item>
+        <item>MacDOWELL, Edward</item>
+        <item>MACHAUT, Guillaume de</item>
+        <item>MacMILLAN, James</item>
+        <item>MACQUE, Giovanni De</item>
+        <item>MAHLER, Gustav</item>
+        <item>MANFREDINI, Francesco</item>
+        <item>MARAIS, Marin</item>
+        <item>MARCELLO, Alessandro</item>
+        <item>MARTIN, Frank</item>
+        <item>MARTINU, Bohuslav</item>
+        <item>MARTTINEN, Tauno</item>
+        <item>MASCAGNI, Pietro</item>
+        <item>MASSENET, Jules</item>
+        <item>Medieval Music Collections</item>
+        <item>MENDELSSOHN, Felix</item>
+        <item>MENOTTI, Gian Carlo</item>
+        <item>MERCADANTE, Giuseppe</item>
+        <item>MERULO, Claudio</item>
+        <item>MESSIAEN, Olivier</item>
+        <item>MEYERBEER, Giacomo</item>
+        <item>MILHAUD, Darius</item>
+        <item>MOERAN, Ernest John</item>
+        <item>MOMPOU, Federico</item>
+        <item>MONTEVERDI, Claudio</item>
+        <item>MORALES, Christobal de</item>
+        <item>MOSZKOWSKI, Moritz</item>
+        <item>MOZART, Wolfgang</item>
+        <item>MUFFAT, Georg</item>
+        <item>MUNDY, William</item>
+        <item>MUSSORGSKY, Modest</item>
+        <item>MYASKOVSKY, Nicolai</item>
+        <item>NANCARROW, Conlon</item>
+        <item>NIELSEN, Carl</item>
+        <item>NONO, Luigi</item>
+        <item>OCKEGHEM, Johannes</item>
+        <item>OFFENBACH, Jacques</item>
+        <item>OLIVEROS, Pauline</item>
+        <item>ONSLOW, Georges</item>
+        <item>ORFF, Carl</item>
+        <item>ORR, Buxton</item>
+        <item>PACHELBEL, Johann</item>
+        <item>PAGANINI, Niccolò</item>
+        <item>PAINE, John Knowles</item>
+        <item>PALESTRINA, Giovanni</item>
+        <item>PARRY, Charles Hubert Hastings</item>
+        <item>PÄRT, Arvo</item>
+        <item>PARTCH, Harry</item>
+        <item>PEÑALOSA, Francisco de</item>
+        <item>PENDERECKI, Krzysztof</item>
+        <item>PERGOLESI, Giovanni Battista</item>
+        <item>PEROTIN</item>
+        <item>PETTERSSON, Gustav Allan</item>
+        <item>PHILIPS, Peter</item>
+        <item>PISENDEL, Johann Georg</item>
+        <item>PISTON, Walter</item>
+        <item>PONCHIELLI, Amilcare</item>
+        <item>POULENC, Francis</item>
+        <item>PRAETORIUS, Micheal</item>
+        <item>PROKOFIEFF, Sergei</item>
+        <item>PUCCINI, Giacomo</item>
+        <item>PURCELL, Henry</item>
+        <item>QUANTZ, Johann Joachim</item>
+        <item>RACHMANINOFF, Sergei</item>
+        <item>RAMEAU, Jean Philippe</item>
+        <item>RAVEL, Maurice</item>
+        <item>REGER, Max</item>
+        <item>REICH, Steve</item>
+        <item>REICHA, Anton</item>
+        <item>Renaissance Music Collections</item>
+        <item>RESPIGHI, Ottorino</item>
+        <item>REVUELTAS, Silvestre [New!]</item>
+        <item>REYNOLDS, Roger</item>
+        <item>RHEINBERGER, Josef Gabriel</item>
+        <item>RILEY, Terry</item>
+        <item>RIMSKY-KORSAKOV, Nikolai</item>
+        <item>RISTORI, Giovanni Alberto</item>
+        <item>RODRIGO, Joaquín</item>
+        <item>ROMAN, Johan Helmich</item>
+        <item>ROREM, Ned [New!]</item>
+        <item>ROSETTI, Antonio</item>
+        <item>ROSNER, Arnold [New!]</item>
+        <item>ROSSINI, Gioachino</item>
+        <item>ROUSSEL, Albert</item>
+        <item>RÓZSA, Miklós [New!]</item>
+        <item>RUBBRA, Edmund</item>
+        <item>RAWSTHORNE, Alan [New!]</item>
+        <item>SAINT-SAËNS, Camille</item>
+        <item>SALLINEN, Aulis</item>
+        <item>SARASATE, Pablo de</item>
+        <item>SATIE, Erik</item>
+        <item>SCARLATTI, Alessandro</item>
+        <item>SCARLATTI, Domenico</item>
+        <item>SCELSI, Giacinto</item>
+        <item>SCHMIDT, Franz</item>
+        <item>SCHMIDT, Johann Christian</item>
+        <item>SCHNITTKE, Alfred</item>
+        <item>SCHOBERT, Johann</item>
+        <item>SCHOENBERG, Arnold</item>
+        <item>SCHUBERT, Franz</item>
+        <item>SCHULLER, Gunther</item>
+        <item>SCHUMAN, William</item>
+        <item>SCHUMANN, Robert</item>
+        <item>SCHUTZ, Heinrich</item>
+        <item>SCRIABIN, Alexander</item>
+        <item>SCULTHORPE, Peter Joshua</item>
+        <item>SEARLE, Humphrey</item>
+        <item>SEIXAS, Jose Antonio</item>
+        <item>SESSIONS, Roger</item>
+        <item>SHOSTAKOVICH, Dmitri</item>
+        <item>SIBELIUS, Jean</item>
+        <item>SIMPSON, Robert</item>
+        <item>SMETANA, Bedrich</item>
+        <item>SOLER, Padre Antonio</item>
+        <item>SOR, Fernando</item>
+        <item>SPOHR, Louis</item>
+        <item>STAMITZ, Carl</item>
+        <item>STANFORD, Charles Villiers</item>
+        <item>STANLEY, John</item>
+        <item>STOCKHAUSEN, Karlheinz</item>
+        <item>STRAUSS, Johann Sr.</item>
+        <item>STRAUSS, Johann II</item>
+        <item>STRAUSS, Richard</item>
+        <item>STRAVINSKY, Igor</item>
+        <item>SUBOTNICK, Morton</item>
+        <item>SUPPÉ, Franz von</item>
+        <item>SWEELINCK, Jan Pieterszoon</item>
+        <item>SZYMANOWSKI, Karol</item>
+        <item>TAKEMITSU, Tōru</item>
+        <item>TALLIS, Thomas</item>
+        <item>TARTINI, Giuseppe</item>
+        <item>TAVENER, John Kenneth</item>
+        <item>TAVERNER, John</item>
+        <item>TCHAIKOVSKY, Piotr Ilyitch</item>
+        <item>TELEMANN, Georg Philipp</item>
+        <item>THOMAS, Ambroise</item>
+        <item>THOMPSON, Randall</item>
+        <item>THOMSON, Virgil</item>
+        <item>TIPPETT, Michael</item>
+        <item>TITELOUZE, Jehan</item>
+        <item>TORELLI, Giuseppe</item>
+        <item>TORKE, Michael</item>
+        <item>TOURNEMIRE, Charles</item>
+        <item>TRABACI, Giovanni Maria</item>
+        <item>TSONTAKIS, George</item>
+        <item>TUBIN, Eduard</item>
+        <item>TURINA, Joaquín</item>
+        <item>TYE, Christopher</item>
+        <item>VARESE, Edgard</item>
+        <item>VAUGHAN WILLIAMS, Ralph</item>
+        <item>VERACINI, Francesco Maria</item>
+        <item>VERDI, Giuseppe</item>
+        <item>VICTORIA, Tomás Luis de</item>
+        <item>VILLA-LÔBOS, Heitor</item>
+        <item>VITRY, Philippe de</item>
+        <item>VIVALDI, Antonio</item>
+        <item>WAGNER, Richard</item>
+        <item>WALTON, William</item>
+        <item>WARLOCK, Peter</item>
+        <item>WASSENAER, Unico Wilhelm</item>
+        <item>WEBER, Carl Maria von</item>
+        <item>WEBERN, Anton</item>
+        <item>WEELKES, Thomas</item>
+        <item>WEILL, Kurt</item>
+        <item>WEINBERG, Mieczysław</item>
+        <item>WEISS, Sylvius Leopold</item>
+        <item>WILDER, Alec</item>
+        <item>WILLAERT, Adrian</item>
+        <item>WILLIAMSON, Malcolm</item>
+        <item>WOLF, Hugo</item>
+        <item>WOLKENSTEIN, Oswald von</item>
+        <item>WOLPE, Stefan</item>
+        <item>WUORINEN, Charles</item>
+        <item>XENAKIS, Yannis</item>
+        <item>YSAŸE, Eugene</item>
+        <item>ZELENKA, Jan Dismas</item>
+        <item>ZWILICH, Ellen Taaffe</item>
+    </string-array>
+    <string-array name="rocks">
+        <item>\? &amp; the Mysterians</item>
+        <item>10,000 Maniacs</item>
+        <item>13th Floor Elevators</item>
+        <item>1910 Fruitgum Company</item>
+        <item>ABBA</item>
+        <item>ABC</item>
+        <item>AC/DC</item>
+        <item>Adam Ant</item>
+        <item>Aerosmith</item>
+        <item>Aimee Mann</item>
+        <item>Al Kooper</item>
+        <item>Al Stewart</item>
+        <item>Alan Parsons</item>
+        <item>Alanis Morissette</item>
+        <item>Alice Cooper</item>
+        <item>Alice in Chains</item>
+        <item>Allan Holdsworth</item>
+        <item>America</item>
+        <item>American Music Club</item>
+        <item>Ani DiFranco</item>
+        <item>Anthrax</item>
+        <item>Bachman-Turner Overdrive</item>
+        <item>Backstreet Boys</item>
+        <item>Bad Company</item>
+        <item>Bad Religion</item>
+        <item>Badfinger</item>
+        <item>Barry Manilow</item>
+        <item>Bauhaus</item>
+        <item>Be Bop Deluxe</item>
+        <item>Beat Happening</item>
+        <item>Beck</item>
+        <item>Belle &amp; Sebastian</item>
+        <item>Big Black</item>
+        <item>Big Brother &amp; the Holding Company</item>
+        <item>Big Star</item>
+        <item>Bill Haley</item>
+        <item>Billy Bragg</item>
+        <item>Billy Fury</item>
+        <item>Billy Joel</item>
+        <item>Billy Lee Riley</item>
+        <item>Björk</item>
+        <item>Black Flag</item>
+        <item>Black Sabbath</item>
+        <item>Blondie</item>
+        <item>Blood, Sweat &amp; Tears</item>
+        <item>Blue Cheer</item>
+        <item>Blue Öyster Cult</item>
+        <item>Blues Traveler</item>
+        <item>Blur</item>
+        <item>Bo Diddley</item>
+        <item>Bob Dylan</item>
+        <item>Bob Mould</item>
+        <item>Bob Seger</item>
+        <item>Bobby Darin</item>
+        <item>Bobby Fuller</item>
+        <item>Bobby Fuller Four</item>
+        <item>Bobby Vee</item>
+        <item>Bon Jovi</item>
+        <item>Bonnie Raitt</item>
+        <item>Boston</item>
+        <item>Boz Scaggs</item>
+        <item>Bread</item>
+        <item>Brian Eno</item>
+        <item>Brinsley Schwarz</item>
+        <item>Britney Spears</item>
+        <item>Bronski Beat</item>
+        <item>Bruce Hornsby</item>
+        <item>Bruce Springsteen</item>
+        <item>Bryan Ferry</item>
+        <item>Buddy Holly</item>
+        <item>Buffalo Springfield</item>
+        <item>Buffalo Springfield (Revisited)</item>
+        <item>Burt Bacharach</item>
+        <item>Butthole Surfers</item>
+        <item>Buzzcocks</item>
+        <item>Cabaret Voltaire</item>
+        <item>Camper Van Beethoven</item>
+        <item>Can</item>
+        <item>Captain Beefheart</item>
+        <item>Carl Perkins</item>
+        <item>Carly Simon</item>
+        <item>Carole King</item>
+        <item>Cat Stevens</item>
+        <item>Celine Dion</item>
+        <item>Cheap Trick</item>
+        <item>Chicago</item>
+        <item>Chris Bell</item>
+        <item>Chris Smither</item>
+        <item>Chuck Berry</item>
+        <item>Cliff Richard</item>
+        <item>Cocteau Twins</item>
+        <item>Commander Cody</item>
+        <item>Country Joe &amp; the Fish</item>
+        <item>Cowboy Junkies</item>
+        <item>Cream</item>
+        <item>Creedence Clearwater Revival</item>
+        <item>Crosby, Stills &amp; Nash</item>
+        <item>Crowded House</item>
+        <item>Culture Club</item>
+        <item>Curt Boettcher</item>
+        <item>Cyndi Lauper</item>
+        <item>Danzig</item>
+        <item>Dave Edmunds</item>
+        <item>Dave Matthews</item>
+        <item>David Bowie</item>
+        <item>David Crosby</item>
+        <item>David Johansen</item>
+        <item>David Sylvian</item>
+        <item>Dead Kennedys</item>
+        <item>Deee-Lite</item>
+        <item>Deep Purple</item>
+        <item>Def Leppard</item>
+        <item>Del Shannon</item>
+        <item>Depeche Mode</item>
+        <item>Derek &amp; the Dominos</item>
+        <item>Devo</item>
+        <item>Dexys Midnight Runners</item>
+        <item>Diamond Head</item>
+        <item>Dick Dale</item>
+        <item>Dietrich Kammer</item>
+        <item>Dinosaur Jr.</item>
+        <item>Dion</item>
+        <item>Dire Straits</item>
+        <item>Don Henley</item>
+        <item>Donald Fagen</item>
+        <item>Donovan</item>
+        <item>Doug Sahm</item>
+        <item>Dr. Feelgood</item>
+        <item>Dr. John</item>
+        <item>Dream Syndicate</item>
+        <item>Duane Eddy</item>
+        <item>Duran Duran</item>
+        <item>Dusty Springfield</item>
+        <item>Dwight Twilley</item>
+        <item>Echo &amp; the Bunnymen</item>
+        <item>Eddie &amp; the Hot Rods</item>
+        <item>Eddie Cochran</item>
+        <item>Einstürzende Neubauten</item>
+        <item>Electric Light Orchestra</item>
+        <item>Elton John</item>
+        <item>Elvis Costello</item>
+        <item>Elvis Presley</item>
+        <item>Emerson, Lake &amp; Palmer</item>
+        <item>Erasure</item>
+        <item>Eric Clapton</item>
+        <item>Eurythmics</item>
+        <item>Everything But the Girl</item>
+        <item>Fabian</item>
+        <item>Faces</item>
+        <item>Fairport Convention</item>
+        <item>Faith No More</item>
+        <item>Faust</item>
+        <item>Felix Mühle</item>
+        <item>Fishbone</item>
+        <item>Fleetwood Mac</item>
+        <item>Foreigner</item>
+        <item>Frank Zappa</item>
+        <item>Free</item>
+        <item>Front 242</item>
+        <item>Front Line Assembly</item>
+        <item>Fugazi</item>
+        <item>Galaxie 500</item>
+        <item>Gang of Four</item>
+        <item>Garbage</item>
+        <item>Gary "U.S." Bonds</item>
+        <item>Gary Glitter</item>
+        <item>Gary Numan</item>
+        <item>Geils</item>
+        <item>Gene Clark</item>
+        <item>Gene Pitney</item>
+        <item>Gene Vincent</item>
+        <item>Genesis</item>
+        <item>Gentle Giant</item>
+        <item>George Harrison</item>
+        <item>George Michael</item>
+        <item>Georgie Fame</item>
+        <item>Gerry &amp; the Pacemakers</item>
+        <item>Gloria Estefan</item>
+        <item>Graham Parker</item>
+        <item>Gram Parsons</item>
+        <item>Grand Funk Railroad</item>
+        <item>Green Day</item>
+        <item>Guided by Voices</item>
+        <item>Guns N\' Roses</item>
+        <item>Half Japanese</item>
+        <item>Hall &amp; Oates</item>
+        <item>Hanson</item>
+        <item>Happy Mondays</item>
+        <item>Harry Nilsson</item>
+        <item>Hawkwind</item>
+        <item>Heart</item>
+        <item>Henry Rollins</item>
+        <item>Hole</item>
+        <item>Hootie &amp; the Blowfish</item>
+        <item>Horslips</item>
+        <item>Huey Lewis</item>
+        <item>Humble Pie</item>
+        <item>Hüsker Dü</item>
+        <item>Ian Dury</item>
+        <item>Ian Hunter</item>
+        <item>Iggy Pop</item>
+        <item>Indigo Girls</item>
+        <item>INXS</item>
+        <item>Iron Butterfly</item>
+        <item>Iron Maiden</item>
+        <item>J. Geils Band</item>
+        <item>J.J. Cale</item>
+        <item>Jackie DeShannon</item>
+        <item>Jackson Browne</item>
+        <item>James Taylor</item>
+        <item>Jan &amp; Dean</item>
+        <item>Jane\'s Addiction</item>
+        <item>Janis Ian</item>
+        <item>Janis Joplin</item>
+        <item>Japan</item>
+        <item>Jason &amp; the Scorchers</item>
+        <item>Jeff Beck</item>
+        <item>Jeff Buckley</item>
+        <item>Jefferson Airplane</item>
+        <item>Jefferson Starship</item>
+        <item>Jerry Lee Lewis</item>
+        <item>Jesse Winchester</item>
+        <item>Jethro Tull</item>
+        <item>Jim Croce</item>
+        <item>Jim O\'Rourke</item>
+        <item>Jimi Hendrix</item>
+        <item>Jimmy Buffett</item>
+        <item>Jimmy Webb</item>
+        <item>Joan Jett</item>
+        <item>Joe Cocker</item>
+        <item>Joe Jackson</item>
+        <item>Joe Meek</item>
+        <item>Joe Satriani</item>
+        <item>Joe South</item>
+        <item>John Cale</item>
+        <item>John Denver</item>
+        <item>John Hiatt</item>
+        <item>John Lennon</item>
+        <item>John Mayall</item>
+        <item>John Mellencamp</item>
+        <item>John Prine</item>
+        <item>Johnny Burnette</item>
+        <item>Johnny Kidd</item>
+        <item>Johnny Rivers</item>
+        <item>Johnny Thunders</item>
+        <item>Johnny Winter</item>
+        <item>Jon Spencer Blues Explosion</item>
+        <item>Jonathan Richman</item>
+        <item>Joni Mitchell</item>
+        <item>Journey</item>
+        <item>Joy Division</item>
+        <item>Judas Priest</item>
+        <item>Jules Shear</item>
+        <item>Julian Cope</item>
+        <item>Karsten Rasim</item>
+        <item>Kate Bush</item>
+        <item>Kid Rock</item>
+        <item>Killing Joke</item>
+        <item>King Crimson</item>
+        <item>Kirsty MacColl</item>
+        <item>Kiss</item>
+        <item>Kittyhawk</item>
+        <item>KMFDM</item>
+        <item>Korn</item>
+        <item>Kyuss</item>
+        <item>L7</item>
+        <item>Laura Nyro</item>
+        <item>Led Zeppelin</item>
+        <item>Leon Russell</item>
+        <item>Leonard Cohen</item>
+        <item>Lesley Gore</item>
+        <item>Let\'s Active</item>
+        <item>Linda Ronstadt</item>
+        <item>Lindsey Buckingham</item>
+        <item>Link Wray</item>
+        <item>Little Feat</item>
+        <item>Little Richard</item>
+        <item>Little River Band</item>
+        <item>Live</item>
+        <item>Liz Phair</item>
+        <item>Lloyd Cole</item>
+        <item>Loggins &amp; Messina</item>
+        <item>Lonnie Donegan</item>
+        <item>Los Lobos</item>
+        <item>Lou Reed</item>
+        <item>Love</item>
+        <item>Love and Rockets</item>
+        <item>Lyle Lovett</item>
+        <item>Lynyrd Skynyrd</item>
+        <item>Madness</item>
+        <item>Madonna</item>
+        <item>Manfred Mann</item>
+        <item>Manic Street Preachers</item>
+        <item>Maria Schumann</item>
+        <item>Marianne Faithfull</item>
+        <item>Marilyn Manson</item>
+        <item>Marshall Crenshaw</item>
+        <item>Matthew Sweet</item>
+        <item>MC5</item>
+        <item>Meat Loaf</item>
+        <item>Meat Puppets</item>
+        <item>Megadeth</item>
+        <item>Melvins</item>
+        <item>Men at Work</item>
+        <item>Mercury Rev</item>
+        <item>Metallica</item>
+        <item>Michael Bolton</item>
+        <item>Michael McDonald</item>
+        <item>Michelle Shocked</item>
+        <item>Midnight Oil</item>
+        <item>Ministry</item>
+        <item>Minor Threat</item>
+        <item>Minutemen</item>
+        <item>Mission of Burma</item>
+        <item>Mitch Ryder</item>
+        <item>Moby Grape</item>
+        <item>Morrissey</item>
+        <item>Mötley Crüe</item>
+        <item>Motörhead</item>
+        <item>Mott the Hoople</item>
+        <item>Mountain</item>
+        <item>Mudhoney</item>
+        <item>My Bloody Valentine</item>
+        <item>Napalm Death</item>
+        <item>Neil Diamond</item>
+        <item>Neil Sedaka</item>
+        <item>Neil Young</item>
+        <item>New Kids on the Block</item>
+        <item>New Order</item>
+        <item>New York Dolls</item>
+        <item>Nick Cave</item>
+        <item>Nick Drake</item>
+        <item>Nick Lowe</item>
+        <item>Nico</item>
+        <item>Nine Inch Nails</item>
+        <item>Nirvana</item>
+        <item>Nitzer Ebb</item>
+        <item>No Doubt</item>
+        <item>Normann Mertig</item>
+        <item>NRBQ</item>
+        <item>Oasis</item>
+        <item>Olivia Newton-John</item>
+        <item>Operation Ivy</item>
+        <item>Orange Juice</item>
+        <item>Ozzy Osbourne</item>
+        <item>P.F. Sloan</item>
+        <item>Palace</item>
+        <item>Pantera</item>
+        <item>Pat Benatar</item>
+        <item>Patti Smith</item>
+        <item>Paul McCartney</item>
+        <item>Paul Revere &amp; the Raiders</item>
+        <item>Paul Simon</item>
+        <item>Paul Weller</item>
+        <item>Pavement</item>
+        <item>Pearl Jam</item>
+        <item>Pere Ubu</item>
+        <item>Pet Shop Boys</item>
+        <item>Pete Townshend</item>
+        <item>Peter Frampton</item>
+        <item>Peter Gabriel</item>
+        <item>Peter Murphy</item>
+        <item>Petula Clark</item>
+        <item>Pezband</item>
+        <item>Phil Collins</item>
+        <item>Phil Spector</item>
+        <item>Phish</item>
+        <item>Phoebe Snow</item>
+        <item>Pink Floyd</item>
+        <item>Pixies</item>
+        <item>PJ Harvey</item>
+        <item>Poco</item>
+        <item>Poison</item>
+        <item>Portishead</item>
+        <item>Primal Scream</item>
+        <item>Primus</item>
+        <item>Prince</item>
+        <item>Procol Harum</item>
+        <item>Public Image Ltd.</item>
+        <item>Pulp</item>
+        <item>Pure Prairie League</item>
+        <item>Pussy Galore</item>
+        <item>Pylon</item>
+        <item>Queen</item>
+        <item>Queensrÿche</item>
+        <item>Quiet Riot</item>
+        <item>R.E.M.</item>
+        <item>Radiohead</item>
+        <item>Rage Against the Machine</item>
+        <item>Rancid</item>
+        <item>Randy Newman</item>
+        <item>Ratt</item>
+        <item>REO Speedwagon</item>
+        <item>Richard Thompson</item>
+        <item>Rick Nelson</item>
+        <item>Rick Springfield</item>
+        <item>Rickie Lee Jones</item>
+        <item>Ride</item>
+        <item>Ritchie Valens</item>
+        <item>Robert Fripp</item>
+        <item>Robert Palmer</item>
+        <item>Robert Wyatt</item>
+        <item>Robyn Hitchcock</item>
+        <item>Rocket From the Tombs</item>
+        <item>Rockpile</item>
+        <item>Rod Stewart</item>
+        <item>Ronnie Hawkins</item>
+        <item>Roxy Music</item>
+        <item>Roy Orbison</item>
+        <item>Rush</item>
+        <item>Ry Cooder</item>
+        <item>Saint Etienne</item>
+        <item>Sandie Shaw</item>
+        <item>Santana</item>
+        <item>Sarah McLachlan</item>
+        <item>Scorpions</item>
+        <item>Scott Walker</item>
+        <item>Screaming Trees</item>
+        <item>Seals &amp; Crofts</item>
+        <item>Sebadoh</item>
+        <item>Selby Tigers</item>
+        <item>Serge Gainsbourg</item>
+        <item>Shadows of Knight</item>
+        <item>Shawn Colvin</item>
+        <item>Sheryl Crow</item>
+        <item>Shoes</item>
+        <item>Simon &amp; Garfunkel</item>
+        <item>Simply Red</item>
+        <item>Sinéad O\'Connor</item>
+        <item>Siouxsie and the Banshees</item>
+        <item>Skinny Puppy</item>
+        <item>Slade</item>
+        <item>Slayer</item>
+        <item>Slint</item>
+        <item>Soft Cell</item>
+        <item>Sonic Youth</item>
+        <item>Sonny &amp; Cher</item>
+        <item>Soundgarden</item>
+        <item>Southside Johnny</item>
+        <item>Spacemen 3</item>
+        <item>Spandau Ballet</item>
+        <item>Sparks</item>
+        <item>Spice Girls</item>
+        <item>Spin Doctors</item>
+        <item>Spirit</item>
+        <item>Spiritualized</item>
+        <item>Split Enz</item>
+        <item>Squeeze</item>
+        <item>Status Quo</item>
+        <item>Steely Dan</item>
+        <item>Stephen Stills</item>
+        <item>Steppenwolf</item>
+        <item>Stereolab</item>
+        <item>Steve Miller</item>
+        <item>Steve Winwood</item>
+        <item>Stevie Nicks</item>
+        <item>Stevie Ray Vaughan</item>
+        <item>Stiff Little Fingers</item>
+        <item>Sting</item>
+        <item>Stone Temple Pilots</item>
+        <item>Stray Cats</item>
+        <item>Styx</item>
+        <item>Sublime</item>
+        <item>Suede</item>
+        <item>Sugar</item>
+        <item>Suicidal Tendencies</item>
+        <item>Suicide</item>
+        <item>Sunny Day Real Estate</item>
+        <item>Super Furry Animals</item>
+        <item>Superchunk</item>
+        <item>Supergrass</item>
+        <item>Supertramp</item>
+        <item>Suzanne Vega</item>
+        <item>Sweet</item>
+        <item>Swell Maps</item>
+        <item>Syd Barrett</item>
+        <item>T. Rex</item>
+        <item>Take That</item>
+        <item>Talk Talk</item>
+        <item>Talking Heads</item>
+        <item>Tears for Fears</item>
+        <item>Ted Nugent</item>
+        <item>Teenage Fanclub</item>
+        <item>Television</item>
+        <item>Terry Hall</item>
+        <item>The Allman Brothers Band</item>
+        <item>The Amazing Rhythm Aces</item>
+        <item>The Angels</item>
+        <item>The Animals</item>
+        <item>The Art of Noise</item>
+        <item>The B-52\'s</item>
+        <item>The Band</item>
+        <item>The Bangles</item>
+        <item>The Beach Boys</item>
+        <item>The Beatles</item>
+        <item>The Beau Brummels</item>
+        <item>The Beautiful South</item>
+        <item>The Bee Gees</item>
+        <item>The Birthday Party</item>
+        <item>The Black Crowes</item>
+        <item>The Blasters</item>
+        <item>The Blues Project</item>
+        <item>The Bonzo Dog Band</item>
+        <item>The Boo Radleys</item>
+        <item>The Box Tops</item>
+        <item>The Breeders</item>
+        <item>The Byrds</item>
+        <item>The Carpenters</item>
+        <item>The Cars</item>
+        <item>The Celibate Rifles</item>
+        <item>The Chantays</item>
+        <item>The Charlatans</item>
+        <item>The Charlatans UK</item>
+        <item>The Chiffons</item>
+        <item>The Chocolate Watchband</item>
+        <item>The Church</item>
+        <item>The Clash</item>
+        <item>The Clean</item>
+        <item>The Count Five</item>
+        <item>The Cramps</item>
+        <item>The Creation</item>
+        <item>The Cure</item>
+        <item>The Damned</item>
+        <item>The Dave Clark Five</item>
+        <item>The dB\'s</item>
+        <item>The Dictators</item>
+        <item>The Doobie Brothers</item>
+        <item>The Doors</item>
+        <item>The Durutti Column</item>
+        <item>The Eagles</item>
+        <item>The English Beat</item>
+        <item>The Everly Brothers</item>
+        <item>The Fabulous Thunderbirds</item>
+        <item>The Fall</item>
+        <item>The Falling Leaves</item>
+        <item>The Feelies</item>
+        <item>The Flamin\' Groovies</item>
+        <item>The Flaming Lips</item>
+        <item>The Flying Burrito Brothers</item>
+        <item>The Four Seasons</item>
+        <item>The Germs</item>
+        <item>The Go-Go\'s</item>
+        <item>The Grass Roots</item>
+        <item>The Grateful Dead</item>
+        <item>The Guess Who</item>
+        <item>The Hollies</item>
+        <item>The Housemartins</item>
+        <item>The Human League</item>
+        <item>The Jam</item>
+        <item>The Jayhawks</item>
+        <item>The Jesus and Mary Chain</item>
+        <item>The Kingsmen</item>
+        <item>The Kinks</item>
+        <item>The La\'s</item>
+        <item>The Last Poets</item>
+        <item>The Left Banke</item>
+        <item>The Lively Ones</item>
+        <item>The Lovin\' Spoonful</item>
+        <item>The Mamas &amp; the Papas</item>
+        <item>The Marshall Tucker Band</item>
+        <item>The Mekons</item>
+        <item>The Mighty Mighty Bosstones</item>
+        <item>The Monkees</item>
+        <item>The Moody Blues</item>
+        <item>The Move</item>
+        <item>The Music Machine</item>
+        <item>The Offspring</item>
+        <item>The Only Ones</item>
+        <item>The Pogues</item>
+        <item>The Police</item>
+        <item>The Posies</item>
+        <item>The Pretenders</item>
+        <item>The Pretty Things</item>
+        <item>The Psychedelic Furs</item>
+        <item>The Raincoats</item>
+        <item>The Ramones</item>
+        <item>The Rascals</item>
+        <item>The Raspberries</item>
+        <item>The Red Hot Chili Peppers</item>
+        <item>The Replacements</item>
+        <item>The Righteous Brothers</item>
+        <item>The Rivieras</item>
+        <item>The Rolling Stones</item>
+        <item>The Ronettes</item>
+        <item>The Runaways</item>
+        <item>The Rutles</item>
+        <item>The Saints</item>
+        <item>The Searchers</item>
+        <item>The Seeds</item>
+        <item>The Seekers</item>
+        <item>The Sex Pistols</item>
+        <item>The Shangri-Las</item>
+        <item>The Sir Douglas Quintet</item>
+        <item>The Slits</item>
+        <item>The Small Faces</item>
+        <item>The Smashing Pumpkins</item>
+        <item>The Smithereens</item>
+        <item>The Smiths</item>
+        <item>The Sneakers</item>
+        <item>The Soft Boys</item>
+        <item>The Soft Machine</item>
+        <item>The Sonics</item>
+        <item>The Specials</item>
+        <item>The Spencer Davis Group</item>
+        <item>The Standells</item>
+        <item>The Stone Roses</item>
+        <item>The Stooges</item>
+        <item>The Strawbs</item>
+        <item>The Style Council</item>
+        <item>The Sugarcubes</item>
+        <item>The Sundays</item>
+        <item>The Surfaris</item>
+        <item>The Teardrop Explodes</item>
+        <item>The Toasters</item>
+        <item>The Trashmen</item>
+        <item>The Troggs</item>
+        <item>The Turtles</item>
+        <item>The Vaselines</item>
+        <item>The Velvet Underground</item>
+        <item>The Ventures</item>
+        <item>The Verve</item>
+        <item>The Walker Brothers</item>
+        <item>The Who</item>
+        <item>The Yardbirds</item>
+        <item>The Zombies</item>
+        <item>Them</item>
+        <item>They Might Be Giants</item>
+        <item>Thin Lizzy</item>
+        <item>Thomas Dolby</item>
+        <item>Three Dog Night</item>
+        <item>Throbbing Gristle</item>
+        <item>Throwing Muses</item>
+        <item>Tim Buckley</item>
+        <item>Tim Hardin</item>
+        <item>Todd Rundgren</item>
+        <item>Tom Jones</item>
+        <item>Tom Petty</item>
+        <item>Tom Waits</item>
+        <item>Tommy James &amp; the Shondells</item>
+        <item>Tony Joe White</item>
+        <item>Tool</item>
+        <item>Tori Amos</item>
+        <item>Tortoise</item>
+        <item>Tracy Chapman</item>
+        <item>Traffic</item>
+        <item>U2</item>
+        <item>UB40</item>
+        <item>Ultravox</item>
+        <item>Uncle Tupelo</item>
+        <item>Unrest</item>
+        <item>Urge Overkill</item>
+        <item>Van Dyke Parks</item>
+        <item>Van Halen</item>
+        <item>Van Morrison</item>
+        <item>Violent Femmes</item>
+        <item>Wanda Jackson</item>
+        <item>Warren Smith</item>
+        <item>Warren Zevon</item>
+        <item>Ween</item>
+        <item>Weezer</item>
+        <item>Wham!</item>
+        <item>White Zombie</item>
+        <item>Whitesnake</item>
+        <item>Wilco</item>
+        <item>Wire</item>
+        <item>X</item>
+        <item>X-Ray Spex</item>
+        <item>XTC</item>
+        <item>Yes</item>
+        <item>Yo La Tengo</item>
+        <item>ZZ Top</item>
+    </string-array>
+</resources>
