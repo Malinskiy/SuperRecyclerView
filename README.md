@@ -11,6 +11,7 @@ Features built in:
 - SwipeRefreshLayout (Google's one)
 - Infinite scrolling, when you reach the X last item, load more of them.
 - Swipe To Dismiss
+- Sticky headers (via [Eowise][eowise-sticky-headers], see sample)
 
 ##Integration
 
