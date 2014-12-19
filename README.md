@@ -1,4 +1,3 @@
-SuperRecyclerView
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SuperRecyclerView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1239)
 ==============
 
