@@ -399,7 +399,7 @@ public class SuperRecyclerView extends FrameLayout {
      * @param listener
      */
     public void setOnScrollListener(RecyclerView.OnScrollListener listener) {
-        mInternalOnScrollListener = listener;
+        mExternalOnScrollListener = listener;
     }
 
     /**
