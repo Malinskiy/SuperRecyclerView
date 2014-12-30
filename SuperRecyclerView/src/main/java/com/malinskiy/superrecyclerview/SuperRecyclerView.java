@@ -175,7 +175,7 @@ public class SuperRecyclerView extends FrameLayout {
                             break;
                     }
 
-                    if (((totalItemCount - lastVisibleItemPosition) == ITEM_LEFT_TO_LOAD_MORE ||
+                    if (((totalItemCount - lastVisibleItemPosition) <= ITEM_LEFT_TO_LOAD_MORE ||
                          (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
                         && !isLoadingMore) {
 
