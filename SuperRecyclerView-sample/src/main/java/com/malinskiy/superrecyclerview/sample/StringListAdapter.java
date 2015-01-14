@@ -15,7 +15,6 @@ public class StringListAdapter extends RecyclerView.Adapter<StringListAdapter.Vi
 
     public StringListAdapter(ArrayList<String> data) {
         this.data = data;
-        setHasStableIds(true);
     }
 
     @Override
@@ -48,11 +47,9 @@ public class StringListAdapter extends RecyclerView.Adapter<StringListAdapter.Vi
         notifyItemInserted(position);
     }
 
-    public void removeViaSwipe(int position) {
+    public void remove(int position) {
         data.remove(position);
-
-        //Because item is already out of view via swipe do not animate this with default animator
-        notifyDataSetChanged();
+        notifyItemRemoved(position);
     }
 
     public void clear() {

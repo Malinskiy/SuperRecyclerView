@@ -14,18 +14,26 @@
 
     <Button
         android:id="@+id/button_grid_sample"
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/button_staggered_sample"
         android:text="Grid example"/>
 
     <Button
         android:id="@+id/button_staggered_sample"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button_grid_sample"
+        android:layout_centerInParent="true"
         android:text="Staggered grid example"/>
+
+    <Button
+        android:id="@+id/button_swipe_sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_staggered_sample"
+        android:text="Swipe adapter example"/>
 
     <Button
         android:id="@+id/button_header_sample"
@@ -33,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button_staggered_sample"
+        android:layout_below="@+id/button_swipe_sample"
         android:text="Header adapter example"/>
 
 </RelativeLayout>

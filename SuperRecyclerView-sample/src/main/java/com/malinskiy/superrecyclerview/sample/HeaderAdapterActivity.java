@@ -26,7 +26,7 @@ public class HeaderAdapterActivity extends Activity implements SwipeRefreshLayou
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_sample);
+        setContentView(R.layout.activity_vertical_sample);
 
         mRecycler = (SuperRecyclerView) findViewById(R.id.list);
         mRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -38,6 +38,7 @@ public class HeaderAdapterActivity extends Activity implements SwipeRefreshLayou
         classics = getResources().getStringArray(R.array.classics);
         data.addAll(Arrays.asList(rocks));
         mAdapter = new StringListAdapter(data);
+        mAdapter.setHasStableIds(true);
         top = new StickyHeadersBuilder()
                 .setAdapter(mAdapter)
                 .setRecyclerView(mRecycler.getRecyclerView())

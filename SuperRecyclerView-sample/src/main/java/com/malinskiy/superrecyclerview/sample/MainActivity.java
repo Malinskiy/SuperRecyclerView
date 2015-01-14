@@ -36,6 +36,14 @@ public class MainActivity extends Activity {
             }
         });
 
+        findViewById(R.id.button_swipe_sample).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SwipeActivity.class);
+                startActivity(intent);
+            }
+        });
+
         findViewById(R.id.button_header_sample).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

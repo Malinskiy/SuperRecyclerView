@@ -2,7 +2,6 @@
 <resources>
 
     <declare-styleable name="superrecyclerview">
-        <attr name="layout_recyclerSelector" format="reference"/>
         <attr name="layout_empty" format="reference"/>
         <attr name="layout_moreProgress" format="reference"/>
         <attr name="layout_progress" format="reference"/>
@@ -22,4 +21,18 @@
         <attr name="mainLayoutId" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="SwipeLayout">
+        <attr name="drag_edge" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="top" value="2"/>
+            <enum name="bottom" value="3"/>
+        </attr>
+        <attr name="horizontalSwipeOffset" format="dimension"/>
+        <attr name="verticalSwipeOffset" format="dimension"/>
+        <attr name="show_mode" format="enum">
+            <enum name="lay_down" value="0"/>
+            <enum name="pull_out" value="1"/>
+        </attr>
+    </declare-styleable>
 </resources>

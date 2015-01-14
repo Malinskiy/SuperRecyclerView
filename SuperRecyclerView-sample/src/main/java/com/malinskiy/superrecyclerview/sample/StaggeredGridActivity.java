@@ -5,6 +5,11 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 public class StaggeredGridActivity extends BaseActivity {
     @Override
+    protected int getLayoutId() {
+        return R.layout.activity_horizontal_sample;
+    }
+
+    @Override
     protected boolean isSwipeToDismissEnabled() {
         return false;
     }

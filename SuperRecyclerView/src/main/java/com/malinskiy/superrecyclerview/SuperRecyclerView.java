@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
 
+import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
+
 public class SuperRecyclerView extends FrameLayout {
 
     protected int ITEM_LEFT_TO_LOAD_MORE = 10;
@@ -41,7 +43,6 @@ public class SuperRecyclerView extends FrameLayout {
 
     protected OnMoreListener     mOnMoreListener;
     protected boolean            isLoadingMore;
-    protected int                mSelector;
     protected SwipeRefreshLayout mPtrLayout;
 
     protected int mSuperRecyclerViewMainLayout;
@@ -86,7 +87,6 @@ public class SuperRecyclerView extends FrameLayout {
             mEmptyId = a.getResourceId(R.styleable.superrecyclerview_layout_empty, 0);
             mMoreProgressId = a.getResourceId(R.styleable.superrecyclerview_layout_moreProgress, R.layout.layout_more_progress);
             mProgressId = a.getResourceId(R.styleable.superrecyclerview_layout_progress, R.layout.layout_progress);
-            mSelector = a.getResourceId(R.styleable.superrecyclerview_layout_recyclerSelector, 0);
         } finally {
             a.recycle();
         }
@@ -203,16 +203,16 @@ public class SuperRecyclerView extends FrameLayout {
                 }
             };
             mRecycler.setOnScrollListener(mInternalOnScrollListener);
-            if (mSelector != 0)
 
-                if (mPadding != -1.0f) {
-                    mRecycler.setPadding(mPadding, mPadding, mPadding, mPadding);
-                } else {
-                    mRecycler.setPadding(mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom);
-                }
+            if (mPadding != -1.0f) {
+                mRecycler.setPadding(mPadding, mPadding, mPadding, mPadding);
+            } else {
+                mRecycler.setPadding(mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom);
+            }
 
-            if (mScrollbarStyle != -1)
+            if (mScrollbarStyle != -1) {
                 mRecycler.setScrollBarStyle(mScrollbarStyle);
+            }
         }
     }
 
