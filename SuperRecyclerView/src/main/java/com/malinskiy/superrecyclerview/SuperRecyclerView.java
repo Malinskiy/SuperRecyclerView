@@ -20,10 +20,13 @@ public class SuperRecyclerView extends FrameLayout {
 
     protected int ITEM_LEFT_TO_LOAD_MORE = 10;
 
+    protected RecyclerView mRecycler;
     protected ViewStub     mProgress;
     protected ViewStub     mMoreProgress;
-    protected RecyclerView mRecycler;
     protected ViewStub     mEmpty;
+    protected View         mProgressView;
+    protected View         mMoreProgressView;
+    protected View         mEmptyView;
 
     protected boolean mClipToPadding;
     protected int     mPadding;
@@ -103,18 +106,18 @@ public class SuperRecyclerView extends FrameLayout {
         mProgress = (ViewStub) v.findViewById(android.R.id.progress);
 
         mProgress.setLayoutResource(mProgressId);
-        mProgress.inflate();
+        mProgressView = mProgress.inflate();
 
         mMoreProgress = (ViewStub) v.findViewById(R.id.more_progress);
         mMoreProgress.setLayoutResource(mMoreProgressId);
         if (mMoreProgressId != 0)
-            mMoreProgress.inflate();
+            mMoreProgressView = mMoreProgress.inflate();
         mMoreProgress.setVisibility(View.GONE);
 
         mEmpty = (ViewStub) v.findViewById(R.id.empty);
         mEmpty.setLayoutResource(mEmptyId);
         if (mEmptyId != 0)
-            mEmpty.inflate();
+            mEmptyView = mEmpty.inflate();
         mEmpty.setVisibility(View.GONE);
 
         initRecyclerView(v);
@@ -483,6 +486,29 @@ public class SuperRecyclerView extends FrameLayout {
         mRecycler.removeItemDecoration(itemDecoration);
     }
 
+    /**
+     *
+     * @return inflated progress view or null
+     */
+    public View getProgressView() {
+        return mProgressView;
+    }
+
+    /**
+     *
+     * @return inflated more progress view or null
+     */
+    public View getMoreProgressView() {
+        return mMoreProgressView;
+    }
+
+    /**
+     *
+     * @return inflated empty view or null
+     */
+    public View getEmptyView() {
+        return mEmptyView;
+    }
 
     public static enum LAYOUT_MANAGER_TYPE {
         LINEAR,
