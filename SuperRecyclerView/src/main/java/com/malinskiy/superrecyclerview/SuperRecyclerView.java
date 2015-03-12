@@ -228,6 +228,65 @@ public class SuperRecyclerView extends FrameLayout {
         return max;
     }
 
+    private void setAdapterInternal(RecyclerView.Adapter adapter, boolean compatibleWithPrevious,
+                                    boolean removeAndRecycleViews){
+        if( compatibleWithPrevious )
+            mRecycler.swapAdapter(adapter, removeAndRecycleViews);
+        else
+            mRecycler.setAdapter(adapter);
+
+        mProgress.setVisibility(View.GONE);
+        mRecycler.setVisibility(View.VISIBLE);
+        mPtrLayout.setRefreshing(false);
+        if( null != adapter )
+            adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+                @Override
+                public void onItemRangeChanged(int positionStart, int itemCount) {
+                    super.onItemRangeChanged(positionStart, itemCount);
+                    update();
+                }
+
+                @Override
+                public void onItemRangeInserted(int positionStart, int itemCount) {
+                    super.onItemRangeInserted(positionStart, itemCount);
+                    update();
+                }
+
+                @Override
+                public void onItemRangeRemoved(int positionStart, int itemCount) {
+                    super.onItemRangeRemoved(positionStart, itemCount);
+                    update();
+                }
+
+                @Override
+                public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+                    super.onItemRangeMoved(fromPosition, toPosition, itemCount);
+                    update();
+                }
+
+                @Override
+                public void onChanged() {
+                    super.onChanged();
+                    update();
+                }
+
+                private void update() {
+                    mProgress.setVisibility(View.GONE);
+                    isLoadingMore = false;
+                    mPtrLayout.setRefreshing(false);
+                    if (mRecycler.getAdapter().getItemCount() == 0 && mEmptyId != 0) {
+                        mEmpty.setVisibility(View.VISIBLE);
+                    } else if (mEmptyId != 0) {
+                        mEmpty.setVisibility(View.GONE);
+                    }
+                }
+            });
+
+        mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0 && mEmptyId != 0
+                             ? View.GONE
+                             : View.VISIBLE);
+    }
+
     /**
      * Set the layout manager to the recycler
      *
@@ -246,55 +305,11 @@ public class SuperRecyclerView extends FrameLayout {
      * @param adapter
      */
     public void setAdapter(RecyclerView.Adapter adapter) {
-        mRecycler.setAdapter(adapter);
-        mProgress.setVisibility(View.GONE);
-        mRecycler.setVisibility(View.VISIBLE);
-        mPtrLayout.setRefreshing(false);
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onItemRangeChanged(int positionStart, int itemCount) {
-                super.onItemRangeChanged(positionStart, itemCount);
-                update();
-            }
+        setAdapterInternal(adapter, false, true);
+    }
 
-            @Override
-            public void onItemRangeInserted(int positionStart, int itemCount) {
-                super.onItemRangeInserted(positionStart, itemCount);
-                update();
-            }
-
-            @Override
-            public void onItemRangeRemoved(int positionStart, int itemCount) {
-                super.onItemRangeRemoved(positionStart, itemCount);
-                update();
-            }
-
-            @Override
-            public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-                super.onItemRangeMoved(fromPosition, toPosition, itemCount);
-                update();
-            }
-
-            @Override
-            public void onChanged() {
-                super.onChanged();
-                update();
-            }
-
-            private void update() {
-                mProgress.setVisibility(View.GONE);
-                isLoadingMore = false;
-                mPtrLayout.setRefreshing(false);
-                if (mRecycler.getAdapter().getItemCount() == 0 && mEmptyId != 0) {
-                    mEmpty.setVisibility(View.VISIBLE);
-                } else if (mEmptyId != 0) {
-                    mEmpty.setVisibility(View.GONE);
-                }
-            }
-        });
-        if ((adapter == null || adapter.getItemCount() == 0) && mEmptyId != 0) {
-            mEmpty.setVisibility(View.VISIBLE);
-        }
+    public void swapAdapter(RecyclerView.Adapter adapter, boolean removeAndRecycleExistingViews){
+        setAdapterInternal(adapter, true, removeAndRecycleExistingViews);
     }
 
     public void setupSwipeToDismiss(final SwipeDismissRecyclerViewTouchListener.DismissCallbacks listener) {
