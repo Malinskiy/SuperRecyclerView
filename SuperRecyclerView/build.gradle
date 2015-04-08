@@ -22,4 +22,13 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
 }
 
+if (JavaVersion.current().isJava8Compatible()) {
+    tasks.withType(Javadoc) {
+        // disable the crazy super-strict doclint tool in Java 8
+        //noinspection SpellCheckingInspection
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
+
 apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
