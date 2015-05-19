@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "co.nullindustries.ultrarecyclerview.sample"
+        minSdkVersion 7
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:cardview-v7:22.1.1'
+
+    compile 'com.malinskiy:materialicons:1.0.1'
+    compile 'com.eowise:recyclerview-stickyheaders:0.5.2'
+    compile project(':UltraRecyclerView')
+}

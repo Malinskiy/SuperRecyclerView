@@ -1,8 +1,6 @@
-[![GitHub release](https://img.shields.io/badge/sample%20apk-1.1.0-brightgreen.svg?style=flat)](https://github.com/Malinskiy/SuperRecyclerView/releases/download/v1.1.0/superrecyclerview-sample-1.1.0.apk) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SuperRecyclerView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1239)
-==============
-
 ##Description
 
+Thanks to [Malinskiy](https://github.com/Malinskiy/SuperRecyclerView) for the base version.
 This is an attempt to make RecyclerView easier to use.
 
 Features built in:
@@ -13,12 +11,14 @@ Features built in:
 - Swipe To Dismiss or Swipe To Remove
 - Sticky headers (via [Eowise][eowise-sticky-headers], see sample)
 
+Please check [CHANGELOG](CHANGELOG.md) for updates.
+
 ##Integration
 
 Just add it to you dependencies
 
 ```
-    compile 'com.malinskiy:superrecyclerview:1.1.0'
+    compile 'co.nullindustries:superrecyclerview:1.1.1'
 ```
 
 ##Usage
@@ -26,7 +26,7 @@ Just add it to you dependencies
 -	Use directly SuperRecyclerView:
 
 ```xml
-   <com.malinskiy.superrecyclerview.SuperRecyclerView
+   <co.nullindustries.superrecyclerview.SuperRecyclerView
             android:id="@+id/list"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
@@ -95,7 +95,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 
 ### Vertical scrollbars
 ```xml
-<com.malinskiy.superrecyclerview.SuperRecyclerView
+<co.nullindustries.superrecyclerview.SuperRecyclerView
      app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
      app:scrollbarStyle="insideInset"
      .../>
@@ -103,7 +103,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 
 ### Horizontal scrollbars
 ```xml
-<com.malinskiy.superrecyclerview.SuperRecyclerView
+<co.nullindustries.superrecyclerview.SuperRecyclerView
      app:mainLayoutId="@layout/layout_recyclerview_horizontalscroll"
      app:scrollbarStyle="insideInset"
      .../>
@@ -123,7 +123,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 Item example:
 
 ```xml
-<com.malinskiy.superrecyclerview.swipe.SwipeLayout
+<co.nullindustries.superrecyclerview.swipe.SwipeLayout
     android:id="@id/recyclerview_swipe"
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -138,7 +138,7 @@ Item example:
         ...
     </LinearLayout>
 
-</com.malinskiy.superrecyclerview.swipe.SwipeLayout>
+</co.nullindustries.superrecyclerview.swipe.SwipeLayout>
 ```
 
 Custom attributes supported:
@@ -157,21 +157,42 @@ Custom attributes supported:
     </attr>
 ```
 
+# Commit Format
+
+Commit comments are composed by: `type` `<empty_space>` `message`.
+
+Types:
+* `=`: UPDATE
+* `+`: ADD
+* `-`: REMOVE
+* `F`: FIX
+* `C`: CLEAN
+
+Example:
+
+`= change the dialogs style`: means there was an update over the dialogs style
+`+ new dialogs library`: means you added something
+`F showing dialogs crash`: means that you fixed something
+`F showing dialogs crash`: means that you fixed something
+`F showing dialogs crash`: means that you fixed something
+
 
 ####[Sample java][sample java]
 
 ##Thanks
-[Jake Warthon][jake-swipe-to-dismiss] for implementation of SwipeToDismiss via NineOldAndroids
+[Malinskiy](https://github.com/Malinskiy/SuperRecyclerView) for the base version of this library.
 
-[Eowise][eowise-sticky-headers] for implementation of sticky headers
+[Jake Warthon][jake-swipe-to-dismiss] for implementation of SwipeToDismiss via NineOldAndroids.
 
-[Quentin Dommerc][superlistview] for inspiration
+[Eowise][eowise-sticky-headers] for implementation of sticky headers.
 
-[代码家][swipelayout] for swipe layout implementation
+[Quentin Dommerc][superlistview] for inspiration.
+
+[代码家][swipelayout] for swipe layout implementation.
 
 ##License
 
-    Copyright (c) 2014 Anton Malinskiy
+    Copyright (c) 2015 Null Industries
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -186,7 +207,7 @@ Custom attributes supported:
     limitations under the License.
     Come on, don't tell me you read that.
 
-[sample java]:https://github.com/Malinskiy/SuperRecyclerView/blob/master/SuperRecyclerView-sample/src/main/java/com/malinskiy/superrecyclerview/sample/BaseActivity.java
+[sample java]:https://github.com/nullindustries/SuperRecyclerView/blob/master/SuperRecyclerView-sample/src/main/java/co/nullindustries/superrecyclerview/sample/BaseActivity.java
 [jake-swipe-to-dismiss]:https://github.com/JakeWharton/SwipeToDismissNOA
 [eowise-sticky-headers]:https://github.com/eowise/recyclerview-stickyheaders
 [superlistview]:https://github.com/dommerq/SuperListview

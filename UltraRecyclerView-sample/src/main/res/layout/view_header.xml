@@ -1,0 +1,11 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#001F3F"
+    android:orientation="horizontal"
+    android:padding="@dimen/horizontalMargin"
+    android:textColor="@android:color/white"
+    android:textSize="24sp"
+    tools:context=".MainActivity"
+    tools:text="Animals starting with A" />

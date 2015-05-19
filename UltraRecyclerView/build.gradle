@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 7
+        targetSdkVersion 22
+        versionCode 4
+        versionName "1.1.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    compile "com.android.support:appcompat-v7:22.1.1"
+    compile "com.android.support:support-v4:22.1.1"
+    compile 'com.android.support:recyclerview-v7:22.1.1'
+
+    compile 'com.nineoldandroids:library:2.4.0'
+}
+
+//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
