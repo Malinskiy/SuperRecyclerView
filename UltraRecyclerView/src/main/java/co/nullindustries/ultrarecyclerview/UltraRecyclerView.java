@@ -371,17 +371,12 @@ public class UltraRecyclerView extends FrameLayout {
 
     /**
      * Set the adapter to the recycler
-     * Automatically hide the progressbar
-     * Set the refresh to false
      * If adapter is empty, then the emptyview is shown
      *
      * @param adapter adapter
      */
     public void setAdapter(RecyclerView.Adapter adapter) {
         mRecycler.setAdapter(adapter);
-        mProgress.setVisibility(View.GONE);
-        mRecycler.setVisibility(View.VISIBLE);
-        mPtrLayout.setRefreshing(false);
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeChanged(int positionStart, int itemCount) {
