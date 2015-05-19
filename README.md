@@ -12,7 +12,7 @@ Features built in:
 
 Please check [CHANGELOG](CHANGELOG.md) for updates.
 
-##Integration
+##Integration (not ready)
 
 Just add it to you dependencies
 
