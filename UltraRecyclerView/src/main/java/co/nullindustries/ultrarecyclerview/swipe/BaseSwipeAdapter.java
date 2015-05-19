@@ -15,8 +15,8 @@ public abstract class BaseSwipeAdapter<VH extends BaseSwipeAdapter.BaseSwipeable
     /**
      * Don't forget to call super.onBindViewHolder when overriding
      *
-     * @param holder
-     * @param position
+     * @param holder holder
+     * @param position position
      */
     @Override
     public void onBindViewHolder(VH holder, int position) {

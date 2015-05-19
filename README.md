@@ -1,6 +1,5 @@
 ##Description
 
-Thanks to [Malinskiy](https://github.com/Malinskiy/SuperRecyclerView) for the base version.
 This is an attempt to make RecyclerView easier to use.
 
 Features built in:
@@ -18,15 +17,15 @@ Please check [CHANGELOG](CHANGELOG.md) for updates.
 Just add it to you dependencies
 
 ```
-    compile 'co.nullindustries:superrecyclerview:1.1.1'
+    compile 'co.nullindustries:ultrarecyclerview:1.1.1'
 ```
 
 ##Usage
 
--	Use directly SuperRecyclerView:
+-	Use directly UltraRecyclerView:
 
 ```xml
-   <co.nullindustries.superrecyclerview.SuperRecyclerView
+   <co.nullindustries.ultrarecyclerview.UltraRecyclerView
             android:id="@+id/list"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
@@ -60,7 +59,7 @@ Just add it to you dependencies
     <attr name="mainLayoutId" format="reference"/>
 ```
 
-##SuperRecyclerView Java Usage
+##UltraRecyclerView Java Usage
 
 ```java
     recycler.setRefreshListener(new SwipeRefreshLayout.OnRefreshListener {
@@ -95,7 +94,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 
 ### Vertical scrollbars
 ```xml
-<co.nullindustries.superrecyclerview.SuperRecyclerView
+<co.nullindustries.ultrarecyclerview.UltraRecyclerView
      app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
      app:scrollbarStyle="insideInset"
      .../>
@@ -103,7 +102,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 
 ### Horizontal scrollbars
 ```xml
-<co.nullindustries.superrecyclerview.SuperRecyclerView
+<co.nullindustries.ultrarecyclerview.UltraRecyclerView
      app:mainLayoutId="@layout/layout_recyclerview_horizontalscroll"
      app:scrollbarStyle="insideInset"
      .../>
@@ -123,7 +122,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 Item example:
 
 ```xml
-<co.nullindustries.superrecyclerview.swipe.SwipeLayout
+<co.nullindustries.ultrarecyclerview.swipe.SwipeLayout
     android:id="@id/recyclerview_swipe"
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -138,7 +137,7 @@ Item example:
         ...
     </LinearLayout>
 
-</co.nullindustries.superrecyclerview.swipe.SwipeLayout>
+</co.nullindustries.ultrarecyclerview.swipe.SwipeLayout>
 ```
 
 Custom attributes supported:
@@ -180,7 +179,7 @@ Example:
 ####[Sample java][sample java]
 
 ##Thanks
-[Malinskiy](https://github.com/Malinskiy/SuperRecyclerView) for the base version of this library.
+[Malinskiy](https://github.com/Malinskiy/UltraRecyclerView) for the base version of this library.
 
 [Jake Warthon][jake-swipe-to-dismiss] for implementation of SwipeToDismiss via NineOldAndroids.
 
@@ -207,7 +206,7 @@ Example:
     limitations under the License.
     Come on, don't tell me you read that.
 
-[sample java]:https://github.com/nullindustries/SuperRecyclerView/blob/master/SuperRecyclerView-sample/src/main/java/co/nullindustries/superrecyclerview/sample/BaseActivity.java
+[sample java]:https://github.com/nullindustries/UltraRecyclerView/blob/master/UltraRecyclerView-sample/src/main/java/co/nullindustries/superrecyclerview/sample/BaseActivity.java
 [jake-swipe-to-dismiss]:https://github.com/JakeWharton/SwipeToDismissNOA
 [eowise-sticky-headers]:https://github.com/eowise/recyclerview-stickyheaders
 [superlistview]:https://github.com/dommerq/SuperListview

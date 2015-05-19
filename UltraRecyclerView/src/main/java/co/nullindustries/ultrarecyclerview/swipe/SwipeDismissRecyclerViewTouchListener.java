@@ -53,7 +53,7 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
     private int mViewWidth = 1; // 1 and not 0 to prevent dividing by zero
 
     // Transient properties
-    private List<PendingDismissData> mPendingDismisses = new ArrayList<PendingDismissData>();
+    private List<PendingDismissData> mPendingDismisses = new ArrayList<>();
     private int mDismissAnimationRefCount = 0;
     private float mDownX;
     private float mDownY;
@@ -96,7 +96,7 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
      * android.widget.ListView} using {@link android.widget.ListView#setOnScrollListener(android.widget.AbsListView.OnScrollListener)}.
      * If a scroll listener is already assigned, the caller should still pass scroll changes through
      * to this listener. This will ensure that this {@link SwipeDismissRecyclerViewTouchListener} is
-     * paused during list view scrolling.</p>
+     * paused during list view scrolling.
      *
      * @see SwipeDismissRecyclerViewTouchListener
      */

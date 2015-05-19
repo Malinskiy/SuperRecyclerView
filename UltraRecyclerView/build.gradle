@@ -25,4 +25,7 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
 }
 
-//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+// Release to maven central
+// https://github.com/chrisbanes/gradle-mvn-push
+// https://chris.banes.me/2013/08/27/pushing-aars-to-maven-central/
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'

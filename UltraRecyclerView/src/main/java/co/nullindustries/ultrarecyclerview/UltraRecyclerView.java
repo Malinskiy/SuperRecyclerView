@@ -230,7 +230,7 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Set the layout manager to the recycler
      *
-     * @param manager
+     * @param manager manager
      */
     public void setLayoutManager(RecyclerView.LayoutManager manager) {
         mRecycler.setLayoutManager(manager);
@@ -290,7 +290,7 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Set the listener when refresh is triggered and enable the SwipeRefreshLayout
      *
-     * @param listener
+     * @param listener listener
      */
     public void setRefreshListener(SwipeRefreshLayout.OnRefreshListener listener) {
         mPtrLayout.setEnabled(true);
@@ -300,10 +300,10 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Set the colors for the SwipeRefreshLayout states
      *
-     * @param colRes1
-     * @param colRes2
-     * @param colRes3
-     * @param colRes4
+     * @param colRes1 color
+     * @param colRes2 color
+     * @param colRes3 color
+     * @param colRes4 color
      */
     public void setRefreshingColorResources(@ColorRes int colRes1, @ColorRes int colRes2, @ColorRes int colRes3, @ColorRes int colRes4) {
         mPtrLayout.setColorSchemeResources(colRes1, colRes2, colRes3, colRes4);
@@ -312,10 +312,10 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Set the colors for the SwipeRefreshLayout states
      *
-     * @param col1
-     * @param col2
-     * @param col3
-     * @param col4
+     * @param col1 color
+     * @param col2 color
+     * @param col3 color
+     * @param col4 color
      */
     public void setRefreshingColor(int col1, int col2, int col3, int col4) {
         mPtrLayout.setColorSchemeColors(col1, col2, col3, col4);
@@ -338,7 +338,7 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Set the scroll listener for the recycler
      *
-     * @param listener
+     * @param listener listener
      */
     public void setOnScrollListener(RecyclerView.OnScrollListener listener) {
         mExternalOnScrollListener = listener;
@@ -347,7 +347,7 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Add the onItemTouchListener for the recycler
      *
-     * @param listener
+     * @param listener listener
      */
     public void addOnItemTouchListener(RecyclerView.OnItemTouchListener listener) {
         mRecycler.addOnItemTouchListener(listener);
@@ -356,7 +356,7 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Remove the onItemTouchListener for the recycler
      *
-     * @param listener
+     * @param listener listener
      */
     public void removeOnItemTouchListener(RecyclerView.OnItemTouchListener listener) {
         mRecycler.removeOnItemTouchListener(listener);
@@ -375,7 +375,7 @@ public class UltraRecyclerView extends FrameLayout {
      * Set the refresh to false
      * If adapter is empty, then the emptyview is shown
      *
-     * @param adapter
+     * @param adapter adapter
      */
     public void setAdapter(RecyclerView.Adapter adapter) {
         mRecycler.setAdapter(adapter);
@@ -432,7 +432,7 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Sets the More listener
      *
-     * @param onMoreListener
+     * @param onMoreListener listener
      * @param max            Number of items before loading more
      */
     public void setupMoreListener(OnMoreListener onMoreListener, int max) {
@@ -455,7 +455,7 @@ public class UltraRecyclerView extends FrameLayout {
     /**
      * Enable/Disable the More event
      *
-     * @param isLoadingMore
+     * @param isLoadingMore boolean
      */
     public void setLoadingMore(boolean isLoadingMore) {
         this.isLoadingMore = isLoadingMore;
