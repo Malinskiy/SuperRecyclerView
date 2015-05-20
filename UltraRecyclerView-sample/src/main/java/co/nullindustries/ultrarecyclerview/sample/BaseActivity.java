@@ -33,7 +33,7 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
 
         boolean dismissEnabled = isSwipeToDismissEnabled();
         if (dismissEnabled) {
-            mRecycler.setupSwipeToDismiss(this);
+            mRecycler.setSwipeToDismiss(this);
             mSparseAnimator = new SparseItemRemoveAnimator();
             mRecycler.getRecyclerView().setItemAnimator(mSparseAnimator);
         }
@@ -74,7 +74,7 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
 
         mRecycler.setRefreshListener(this);
         mRecycler.setRefreshingColorResources(android.R.color.holo_orange_light, android.R.color.holo_blue_light, android.R.color.holo_green_light, android.R.color.holo_red_light);
-        mRecycler.setupMoreListener(this, 1);
+        mRecycler.setMoreListener(this, 1);
     }
 
     protected abstract int getLayoutId();
