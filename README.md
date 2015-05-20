@@ -161,11 +161,11 @@ Custom attributes supported:
 Commit comments are composed by: `type` `<empty_space>` `message`.
 
 Types:
-* `=`: UPDATE
-* `+`: ADD
-* `-`: REMOVE
-* `F`: FIX
-* `C`: CLEAN
+* :muscle: : UPDATE
+* :neckbeard: : ADD 
+* :shipit: : REMOVE
+* :clap:: : FIX
+* :umbrella: : CLEAN
 
 Example:
 
