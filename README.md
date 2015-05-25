@@ -169,11 +169,11 @@ Types:
 
 Example:
 
-`= change the dialogs style`: means there was an update over the dialogs style
-`+ new dialogs library`: means you added something
-`F showing dialogs crash`: means that you fixed something
-`F showing dialogs crash`: means that you fixed something
-`F showing dialogs crash`: means that you fixed something
+`:muscle: change the dialogs style`: means there was an update over the dialogs style
+`:neckbeard: new dialogs library`: means you added something
+`:clap: showing dialogs crash`: means that you fixed something
+`:clap: showing dialogs crash`: means that you fixed something
+`:clap: showing dialogs crash`: means that you fixed something
 
 
 ####[Sample java][sample java]
