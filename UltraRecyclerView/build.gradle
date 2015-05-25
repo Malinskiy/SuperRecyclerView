@@ -25,7 +25,15 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
 }
 
+ext {
+    PUBLISH_GROUP_ID = 'co.nullindustries.ultrarecyclerview'
+    PUBLISH_ARTIFACT_ID =  'ultrarecyclerview'
+    PUBLISH_VERSION = '1.1.1'
+}
+
+apply from: 'https://raw.githubusercontent.com/ArthurHub/release-android-library/master/android-release-aar.gradle'
+
 // Release to maven central
 // https://github.com/chrisbanes/gradle-mvn-push
 // https://chris.banes.me/2013/08/27/pushing-aars-to-maven-central/
-apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
