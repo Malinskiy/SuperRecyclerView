@@ -15,9 +15,6 @@ Please check [CHANGELOG](CHANGELOG.md) for updates.
 ##Integration *GRADLE*
 
 ```
-repositories {
-    maven { url 'https://dl.bintray.com/danielnull/maven' } // Ultra Recycler View
-}
 dependencies {
     compile 'co.nullindustries:ultrarecyclerview:1.1.1'
 }
