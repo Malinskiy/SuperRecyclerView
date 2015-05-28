@@ -8,7 +8,7 @@ android {
         minSdkVersion 7
         targetSdkVersion 22
         versionCode 4
-        versionName "1.1.1"
+        versionName "1.1.2"
     }
     buildTypes {
         release {
@@ -28,9 +28,10 @@ dependencies {
 ext {
     PUBLISH_GROUP_ID = 'co.nullindustries.ultrarecyclerview'
     PUBLISH_ARTIFACT_ID =  'ultrarecyclerview'
-    PUBLISH_VERSION = '1.1.1'
+    PUBLISH_VERSION = '1.1.2'
 }
 
+// To publish ./gradlew clean build generateRelease
 apply from: 'https://raw.githubusercontent.com/ArthurHub/release-android-library/master/android-release-aar.gradle'
 
 // Release to maven central

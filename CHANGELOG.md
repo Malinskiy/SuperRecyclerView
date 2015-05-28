@@ -1,7 +1,10 @@
+CHANGELOG
+============
 
 ## 1.1.2
 
 + `DividerItemDecoration` and `UltraRecyclerView.setItemDecorator(decorator)`.
+F Hide empty view after adapter get items.
 
 ## 1.1.1
 

@@ -1,3 +1,5 @@
+![](/img/logo_with_name.png)
+
 ##Description
 
 This is an attempt to make RecyclerView easier to use.
@@ -211,3 +213,4 @@ Example:
 [eowise-sticky-headers]:https://github.com/eowise/recyclerview-stickyheaders
 [superlistview]:https://github.com/dommerq/SuperListview
 [swipelayout]:https://github.com/daimajia/AndroidSwipeLayout
+[theSquid.ink](https://www.iconfinder.com/iconsets/thesquid-ink-40-free-flat-icon-pack): icon :).
