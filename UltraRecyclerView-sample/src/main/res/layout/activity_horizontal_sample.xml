@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <co.nullindustries.ultrarecyclerview.UltraRecyclerView
         android:id="@+id/list"
@@ -12,6 +12,6 @@
         app:mainLayoutId="@layout/layout_recyclerview_horizontalscroll"
         app:recyclerClipToPadding="false"
         app:recyclerPadding="16dp"
-        app:scrollbarStyle="insideInset" />
+        app:scrollbarStyle="insideInset"/>
 
 </RelativeLayout>

@@ -119,7 +119,7 @@ public class UltraRecyclerView extends FrameLayout {
         if (mEmptyId != 0) mEmptyView = mEmptyViewStub.inflate();
         mEmptyViewStub.setVisibility(View.GONE);
 
-        mRecyclerView = (RecyclerView) layout.findViewById(R.id.list);
+        mRecyclerView = (RecyclerView) layout.findViewById(android.R.id.list);
         if (mRecyclerView != null) {
             mRecyclerView.setClipToPadding(mClipToPadding);
             mInternalOnScrollListener = new RecyclerView.OnScrollListener() {

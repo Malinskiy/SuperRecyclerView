@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import java.util.ArrayList;
 
 import co.nullindustries.ultrarecyclerview.swipe.BaseSwipeAdapter;

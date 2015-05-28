@@ -11,16 +11,16 @@
             android:name="co.nullindustries.ultrarecyclerview.sample.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="co.nullindustries.ultrarecyclerview.sample.ListActivity" />
-        <activity android:name="co.nullindustries.ultrarecyclerview.sample.GridActivity" />
-        <activity android:name="co.nullindustries.ultrarecyclerview.sample.StaggeredGridActivity" />
-        <activity android:name="co.nullindustries.ultrarecyclerview.sample.SwipeActivity" />
-        <activity android:name="co.nullindustries.ultrarecyclerview.sample.HeaderAdapterActivity" />
+        <activity android:name="co.nullindustries.ultrarecyclerview.sample.ListActivity"/>
+        <activity android:name="co.nullindustries.ultrarecyclerview.sample.GridActivity"/>
+        <activity android:name="co.nullindustries.ultrarecyclerview.sample.StaggeredGridActivity"/>
+        <activity android:name="co.nullindustries.ultrarecyclerview.sample.SwipeActivity"/>
+        <activity android:name="co.nullindustries.ultrarecyclerview.sample.HeaderAdapterActivity"/>
     </application>
 
 </manifest>

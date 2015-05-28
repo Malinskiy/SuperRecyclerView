@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/horizontalMargin"
-    android:paddingRight="@dimen/horizontalMargin">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingEnd="@dimen/horizontalMargin"
+              android:paddingRight="@dimen/horizontalMargin">
 
     <TextView
         android:id="@+id/letter"
         android:layout_width="match_parent"
         android:layout_height="?android:listPreferredItemHeight"
         android:gravity="right|center_vertical"
-        android:textAppearance="?android:textAppearanceLarge" />
+        android:textAppearance="?android:textAppearanceLarge"/>
 </LinearLayout>
