@@ -191,6 +191,8 @@ Example:
 
 [代码家][swipelayout] for swipe layout implementation.
 
+[hteSquid][theSquid.ink] icon :).
+
 ##License
 
     Copyright (c) 2015 Null Industries
@@ -213,4 +215,4 @@ Example:
 [eowise-sticky-headers]:https://github.com/eowise/recyclerview-stickyheaders
 [superlistview]:https://github.com/dommerq/SuperListview
 [swipelayout]:https://github.com/daimajia/AndroidSwipeLayout
-[theSquid.ink](https://www.iconfinder.com/iconsets/thesquid-ink-40-free-flat-icon-pack): icon :).
+[theSquid.ink]:https://www.iconfinder.com/iconsets/thesquid-ink-40-free-flat-icon-pack
