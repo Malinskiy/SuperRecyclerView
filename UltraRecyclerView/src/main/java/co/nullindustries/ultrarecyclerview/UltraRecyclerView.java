@@ -209,6 +209,14 @@ public class UltraRecyclerView extends FrameLayout {
     //<editor-fold desc="Setters/Getters">
 
     /**
+     * @see co.nullindustries.ultrarecyclerview.Decorators.DividerItemDecoration
+     * @param decorator
+     */
+    public void setItemDecorator(RecyclerView.ItemDecoration decorator){
+        mRecyclerView.addItemDecoration(decorator);
+    }
+
+    /**
      * Set the adapter to the recycler
      * If adapter is empty, then the emptyview is shown
      *

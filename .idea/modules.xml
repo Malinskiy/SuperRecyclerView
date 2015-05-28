@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android-UltraRecyclerView.iml" filepath="$PROJECT_DIR$/Android-UltraRecyclerView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/UltraRecyclerView.iml" filepath="$PROJECT_DIR$/UltraRecyclerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UltraRecyclerView/UltraRecyclerView.iml" filepath="$PROJECT_DIR$/UltraRecyclerView/UltraRecyclerView.iml" />
       <module fileurl="file://$PROJECT_DIR$/UltraRecyclerView-sample/UltraRecyclerView-sample.iml" filepath="$PROJECT_DIR$/UltraRecyclerView-sample/UltraRecyclerView-sample.iml" />
     </modules>
   </component>
