@@ -18,7 +18,7 @@ Please check [CHANGELOG](CHANGELOG.md) for updates.
 
 ```
 dependencies {
-    compile 'co.nullindustries:ultrarecyclerview:1.1.1'
+    compile 'co.nullindustries:ultrarecyclerview:1.1.2'
 }
 ```
 
