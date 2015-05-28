@@ -12,12 +12,12 @@ Features built in:
 
 Please check [CHANGELOG](CHANGELOG.md) for updates.
 
-##Integration (not ready)
-
-Just add it to you dependencies
+##Integration *GRADLE*
 
 ```
+dependencies {
     compile 'co.nullindustries:ultrarecyclerview:1.1.1'
+}
 ```
 
 ##Usage
