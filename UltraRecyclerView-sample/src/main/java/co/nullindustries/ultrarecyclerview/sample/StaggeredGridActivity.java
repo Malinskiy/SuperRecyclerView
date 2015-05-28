@@ -1,10 +1,18 @@
 package co.nullindustries.ultrarecyclerview.sample;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 
 public class StaggeredGridActivity extends BaseActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        startAddingItems();
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_horizontal_sample;

@@ -212,7 +212,7 @@ public class UltraRecyclerView extends FrameLayout {
      * @see co.nullindustries.ultrarecyclerview.Decorators.DividerItemDecoration
      * @param decorator
      */
-    public void setItemDecorator(RecyclerView.ItemDecoration decorator){
+    public void setItemDecorator(RecyclerView.ItemDecoration decorator) {
         mRecyclerView.addItemDecoration(decorator);
     }
 
@@ -225,12 +225,11 @@ public class UltraRecyclerView extends FrameLayout {
     public void setAdapter(RecyclerView.Adapter adapter) {
         mRecyclerView.setAdapter(adapter);
 
-        if (adapter == null) {
+        if (adapter == null || adapter.getItemCount() == 0) {
             manageEmptyViewVisibility();
-            return;
         }
 
-        if (mAdapterDataObserver == null) {
+        if (adapter != null ) {
             mAdapterDataObserver = new RecyclerView.AdapterDataObserver() {
                 @Override
                 public void onItemRangeChanged(int positionStart, int itemCount) {
@@ -268,8 +267,8 @@ public class UltraRecyclerView extends FrameLayout {
                     manageEmptyViewVisibility();
                 }
             };
+            adapter.registerAdapterDataObserver(mAdapterDataObserver);
         }
-        adapter.registerAdapterDataObserver(mAdapterDataObserver);
     }
 
     public SwipeRefreshLayout getSwipeToRefresh() {
@@ -394,7 +393,7 @@ public class UltraRecyclerView extends FrameLayout {
         return isLoadingMore;
     }
 
-    public boolean isRefresing(){
+    public boolean isRefresing() {
         return mSwipeRefreshLayout.isRefreshing();
     }
     //</editor-fold>
@@ -405,7 +404,7 @@ public class UltraRecyclerView extends FrameLayout {
      * Show the progressbar
      */
     public void showProgressBar() {
-        if (mEmptyId != 0) mEmptyViewStub.setVisibility(View.INVISIBLE);
+        if (mEmptyId != 0) mEmptyViewStub.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.GONE);
         mProgressViewStub.setVisibility(View.VISIBLE);
     }
@@ -440,6 +439,9 @@ public class UltraRecyclerView extends FrameLayout {
     private void manageEmptyViewVisibility() {
         if (mEmptyId != 0 && mRecyclerView.getAdapter().getItemCount() == 0) {
             mEmptyViewStub.setVisibility(View.VISIBLE);
+            hideProgressViews();
+        } else {
+            mEmptyViewStub.setVisibility(View.GONE);
         }
     }
 

@@ -30,6 +30,7 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
 
         mRecycler = (UltraRecyclerView) findViewById(R.id.list);
         mRecycler.setLayoutManager(getLayoutManager());
+        mRecycler.setAdapter(mAdapter);
 
         boolean dismissEnabled = isSwipeToDismissEnabled();
         if (dismissEnabled) {
@@ -38,43 +39,15 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
             mRecycler.getRecyclerView().setItemAnimator(mSparseAnimator);
         }
 
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mRecycler.setAdapter(mAdapter);
-                    }
-                });
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter.add("More stuff");
-                        mAdapter.add("More stuff");
-                        mAdapter.add("More stuff");
-                    }
-                });
-            }
-        });
-        thread.start();
-
         mRecycler.setRefreshListener(this);
         mRecycler.setRefreshingColorResources(android.R.color.holo_orange_light, android.R.color.holo_blue_light, android.R.color.holo_green_light, android.R.color.holo_red_light);
         mRecycler.setMoreListener(this, 1);
+    }
+
+    protected void startAddingItems() {
+        mAdapter.add("More stuff");
+        mAdapter.add("More stuff");
+        mAdapter.add("More stuff");
     }
 
     protected abstract int getLayoutId();
