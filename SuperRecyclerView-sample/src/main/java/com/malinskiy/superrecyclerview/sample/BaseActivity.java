@@ -3,6 +3,7 @@ package com.malinskiy.superrecyclerview.sample;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
@@ -16,9 +17,11 @@ import java.util.ArrayList;
 
 public abstract class BaseActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener, OnMoreListener, SwipeDismissRecyclerViewTouchListener.DismissCallbacks {
 
-    private SuperRecyclerView        mRecycler;
-    private StringListAdapter        mAdapter;
-    private SparseItemRemoveAnimator mSparseAnimator;
+    private SuperRecyclerView          mRecycler;
+    private StringListAdapter          mAdapter;
+    private SparseItemRemoveAnimator   mSparseAnimator;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private Handler                    mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,8 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
         mAdapter = new StringListAdapter(list);
 
         mRecycler = (SuperRecyclerView) findViewById(R.id.list);
-        mRecycler.setLayoutManager(getLayoutManager());
+        mLayoutManager = getLayoutManager();
+        mRecycler.setLayoutManager(mLayoutManager);
 
         boolean dismissEnabled = isSwipeToDismissEnabled();
         if (dismissEnabled) {
@@ -37,6 +41,8 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
             mSparseAnimator = new SparseItemRemoveAnimator();
             mRecycler.getRecyclerView().setItemAnimator(mSparseAnimator);
         }
+
+        mHandler = new Handler(Looper.getMainLooper());
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -63,9 +69,7 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mAdapter.add("More stuff");
-                        mAdapter.add("More stuff");
-                        mAdapter.add("More stuff");
+                        mAdapter.addAll(new String[]{"More stuff", "More stuff", "More stuff"});
                     }
                 });
             }
@@ -87,10 +91,9 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
     public void onRefresh() {
         Toast.makeText(this, "Refresh", Toast.LENGTH_LONG).show();
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        mHandler.postDelayed(new Runnable() {
             public void run() {
-                mAdapter.insert("New stuff", 0);
+                mAdapter.add("New stuff");
             }
         }, 2000);
     }
@@ -99,7 +102,11 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
     public void onMoreAsked(int numberOfItems, int numberBeforeMore, int currentItemPos) {
         Toast.makeText(this, "More", Toast.LENGTH_LONG).show();
 
-        mAdapter.add("More asked, more served");
+        mHandler.postDelayed(new Runnable() {
+            public void run() {
+                mAdapter.add("More asked, more served");
+            }
+        }, 300);
     }
 
     @Override

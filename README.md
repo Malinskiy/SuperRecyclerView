@@ -160,6 +160,12 @@ Custom attributes supported:
 
 ####[Sample java][sample java]
 
+## Proguard
+
+```
+-dontwarn com.malinskiy.superrecyclerview.SwipeDismissRecyclerViewTouchListener*
+```
+
 ##Thanks
 [Jake Warthon][jake-swipe-to-dismiss] for implementation of SwipeToDismiss via NineOldAndroids
 

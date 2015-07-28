@@ -3,6 +3,7 @@ package com.malinskiy.superrecyclerview.sample;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -18,6 +19,7 @@ public class SwipeActivity extends Activity implements SwipeRefreshLayout.OnRefr
 
     private SuperRecyclerView mRecycler;
     private SwipeAdapter      mAdapter;
+    private Handler           mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class SwipeActivity extends Activity implements SwipeRefreshLayout.OnRefr
                 Toast.makeText(SwipeActivity.this, "Clicked " + position, Toast.LENGTH_SHORT).show();
             }
         }));
+
+        mHandler = new Handler(Looper.getMainLooper());
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -82,18 +86,21 @@ public class SwipeActivity extends Activity implements SwipeRefreshLayout.OnRefr
 
         mAdapter.closeAllExcept(null);
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        mHandler.postDelayed(new Runnable() {
             public void run() {
                 mAdapter.insert("New stuff", 0);
             }
-        }, 2000);
+        }, 1000);
     }
 
     @Override
     public void onMoreAsked(int numberOfItems, int numberBeforeMore, int currentItemPos) {
         Toast.makeText(this, "More", Toast.LENGTH_LONG).show();
 
-        mAdapter.add("More asked, more served");
+        mHandler.postDelayed(new Runnable() {
+            public void run() {
+                mAdapter.add("More asked, more served");
+            }
+        }, 300);
     }
 }

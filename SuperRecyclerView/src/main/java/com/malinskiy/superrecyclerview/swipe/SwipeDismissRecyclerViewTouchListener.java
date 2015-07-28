@@ -16,6 +16,7 @@
 
 package com.malinskiy.superrecyclerview.swipe;
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.os.SystemClock;
 import android.support.v4.view.MotionEventCompat;
@@ -134,6 +135,7 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
         };
     }
 
+    @SuppressLint("AndroidLintClickableViewAccessibility")
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (mViewWidth < 2) {
