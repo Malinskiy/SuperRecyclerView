@@ -538,6 +538,16 @@ public class SuperRecyclerView extends FrameLayout {
         return mEmptyView;
     }
 
+    /**
+     * Animate a scroll by the given amount of pixels along either axis.
+     *
+     * @param dx Pixels to scroll horizontally
+     * @param dy Pixels to scroll vertically
+     */
+    public void smoothScrollBy(int dx, int dy) {
+        mRecycler.smoothScrollBy(dx, dy);
+    }
+
     public enum LAYOUT_MANAGER_TYPE {
         LINEAR,
         GRID,
