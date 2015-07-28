@@ -51,6 +51,8 @@ public class SuperRecyclerView extends FrameLayout {
     protected int mSuperRecyclerViewMainLayout;
     private   int mProgressId;
 
+    private int[] lastScrollPositions;
+
     public SwipeRefreshLayout getSwipeToRefresh() {
         return mPtrLayout;
     }
@@ -138,57 +140,12 @@ public class SuperRecyclerView extends FrameLayout {
         if (mRecycler != null) {
             mRecycler.setClipToPadding(mClipToPadding);
             mInternalOnScrollListener = new RecyclerView.OnScrollListener() {
-                private int[] lastPositions;
 
                 @Override
                 public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
 
-                    RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-                    int visibleItemCount = layoutManager.getChildCount();
-                    int totalItemCount = layoutManager.getItemCount();
-
-                    int lastVisibleItemPosition = -1;
-                    if (layoutManagerType == null) {
-                        if (layoutManager instanceof LinearLayoutManager) {
-                            layoutManagerType = LAYOUT_MANAGER_TYPE.LINEAR;
-                        } else if (layoutManager instanceof GridLayoutManager) {
-                            layoutManagerType = LAYOUT_MANAGER_TYPE.GRID;
-                        } else if (layoutManager instanceof StaggeredGridLayoutManager) {
-                            layoutManagerType = LAYOUT_MANAGER_TYPE.STAGGERED_GRID;
-                        } else {
-                            throw new RuntimeException("Unsupported LayoutManager used. Valid ones are LinearLayoutManager, GridLayoutManager and StaggeredGridLayoutManager");
-                        }
-                    }
-
-                    switch (layoutManagerType) {
-                        case LINEAR:
-                            lastVisibleItemPosition = ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
-                            break;
-                        case GRID:
-                            lastVisibleItemPosition = ((GridLayoutManager) layoutManager).findLastVisibleItemPosition();
-                            break;
-                        case STAGGERED_GRID:
-                            StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
-                            if (lastPositions == null)
-                                lastPositions = new int[staggeredGridLayoutManager.getSpanCount()];
-
-                            staggeredGridLayoutManager.findLastVisibleItemPositions(lastPositions);
-                            lastVisibleItemPosition = findMax(lastPositions);
-                            break;
-                    }
-
-                    if (((totalItemCount - lastVisibleItemPosition) <= ITEM_LEFT_TO_LOAD_MORE ||
-                         (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
-                        && !isLoadingMore) {
-
-                        isLoadingMore = true;
-                        if (mOnMoreListener != null) {
-                            mMoreProgress.setVisibility(View.VISIBLE);
-                            mOnMoreListener.onMoreAsked(mRecycler.getAdapter().getItemCount(), ITEM_LEFT_TO_LOAD_MORE, lastVisibleItemPosition);
-
-                        }
-                    }
+                    processOnMore();
 
                     if (mExternalOnScrollListener != null)
                         mExternalOnScrollListener.onScrolled(recyclerView, dx, dy);
@@ -205,7 +162,7 @@ public class SuperRecyclerView extends FrameLayout {
                         mSwipeDismissScrollListener.onScrollStateChanged(recyclerView, newState);
                 }
             };
-            mRecycler.setOnScrollListener(mInternalOnScrollListener);
+            mRecycler.addOnScrollListener(mInternalOnScrollListener);
 
             if (mPadding != -1.0f) {
                 mRecycler.setPadding(mPadding, mPadding, mPadding, mPadding);
@@ -219,6 +176,57 @@ public class SuperRecyclerView extends FrameLayout {
         }
     }
 
+    private void processOnMore() {
+        RecyclerView.LayoutManager layoutManager = mRecycler.getLayoutManager();
+        int lastVisibleItemPosition = getLastVisibleItemPosition(layoutManager);
+        int visibleItemCount = layoutManager.getChildCount();
+        int totalItemCount = layoutManager.getItemCount();
+
+        if (((totalItemCount - lastVisibleItemPosition) <= ITEM_LEFT_TO_LOAD_MORE ||
+             (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
+            && !isLoadingMore) {
+
+            isLoadingMore = true;
+            if (mOnMoreListener != null) {
+                mMoreProgress.setVisibility(View.VISIBLE);
+                mOnMoreListener.onMoreAsked(mRecycler.getAdapter().getItemCount(), ITEM_LEFT_TO_LOAD_MORE, lastVisibleItemPosition);
+            }
+        }
+    }
+
+    private int getLastVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
+        int lastVisibleItemPosition = -1;
+        if (layoutManagerType == null) {
+            if (layoutManager instanceof LinearLayoutManager) {
+                layoutManagerType = LAYOUT_MANAGER_TYPE.LINEAR;
+            } else if (layoutManager instanceof GridLayoutManager) {
+                layoutManagerType = LAYOUT_MANAGER_TYPE.GRID;
+            } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+                layoutManagerType = LAYOUT_MANAGER_TYPE.STAGGERED_GRID;
+            } else {
+                throw new RuntimeException("Unsupported LayoutManager used. Valid ones are LinearLayoutManager, GridLayoutManager and StaggeredGridLayoutManager");
+            }
+        }
+
+        switch (layoutManagerType) {
+            case LINEAR:
+                lastVisibleItemPosition = ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
+                break;
+            case GRID:
+                lastVisibleItemPosition = ((GridLayoutManager) layoutManager).findLastVisibleItemPosition();
+                break;
+            case STAGGERED_GRID:
+                StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
+                if (lastScrollPositions == null)
+                    lastScrollPositions = new int[staggeredGridLayoutManager.getSpanCount()];
+
+                staggeredGridLayoutManager.findLastVisibleItemPositions(lastScrollPositions);
+                lastVisibleItemPosition = findMax(lastScrollPositions);
+                break;
+        }
+        return lastVisibleItemPosition;
+    }
+
     private int findMax(int[] lastPositions) {
         int max = Integer.MIN_VALUE;
         for (int value : lastPositions) {
@@ -229,14 +237,13 @@ public class SuperRecyclerView extends FrameLayout {
     }
 
     /**
-     *
-     * @param adapter The new adapter to set, or null to set no adapter
-     * @param compatibleWithPrevious Should be set to true if new adapter uses the same {@android.support.v7.widget.RecyclerView.ViewHolder} as previous one
+     * @param adapter                       The new adapter to set, or null to set no adapter
+     * @param compatibleWithPrevious        Should be set to true if new adapter uses the same {@android.support.v7.widget.RecyclerView.ViewHolder} as previous one
      * @param removeAndRecycleExistingViews If set to true, RecyclerView will recycle all existing Views. If adapters have stable ids and/or you want to animate the disappearing views, you may prefer to set this to false
      */
     private void setAdapterInternal(RecyclerView.Adapter adapter, boolean compatibleWithPrevious,
-                                    boolean removeAndRecycleExistingViews){
-        if( compatibleWithPrevious )
+                                    boolean removeAndRecycleExistingViews) {
+        if (compatibleWithPrevious)
             mRecycler.swapAdapter(adapter, removeAndRecycleExistingViews);
         else
             mRecycler.setAdapter(adapter);
@@ -244,7 +251,7 @@ public class SuperRecyclerView extends FrameLayout {
         mProgress.setVisibility(View.GONE);
         mRecycler.setVisibility(View.VISIBLE);
         mPtrLayout.setRefreshing(false);
-        if( null != adapter )
+        if (null != adapter)
             adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                 @Override
                 public void onItemRangeChanged(int positionStart, int itemCount) {
@@ -278,6 +285,7 @@ public class SuperRecyclerView extends FrameLayout {
 
                 private void update() {
                     mProgress.setVisibility(View.GONE);
+                    mMoreProgress.setVisibility(View.GONE);
                     isLoadingMore = false;
                     mPtrLayout.setRefreshing(false);
                     if (mRecycler.getAdapter().getItemCount() == 0 && mEmptyId != 0) {
@@ -314,11 +322,8 @@ public class SuperRecyclerView extends FrameLayout {
         setAdapterInternal(adapter, false, true);
     }
 
-
     /**
-     *
-     *
-     * @param adapter The new adapter to swap to, or null to set no adapter.
+     * @param adapter                       The new adapter to , or null to set no adapter.
      * @param removeAndRecycleExistingViews If set to true, RecyclerView will recycle all existing Views. If adapters have stable ids and/or you want to animate the disappearing views, you may prefer to set this to false.
      */
     public void swapAdapter(RecyclerView.Adapter adapter, boolean removeAndRecycleExistingViews) {
@@ -368,12 +373,10 @@ public class SuperRecyclerView extends FrameLayout {
 
     public void showMoreProgress() {
         mMoreProgress.setVisibility(View.VISIBLE);
-
     }
 
     public void hideMoreProgress() {
         mMoreProgress.setVisibility(View.GONE);
-
     }
 
     /**
@@ -515,7 +518,6 @@ public class SuperRecyclerView extends FrameLayout {
     }
 
     /**
-     *
      * @return inflated progress view or null
      */
     public View getProgressView() {
@@ -523,7 +525,6 @@ public class SuperRecyclerView extends FrameLayout {
     }
 
     /**
-     *
      * @return inflated more progress view or null
      */
     public View getMoreProgressView() {
@@ -531,14 +532,13 @@ public class SuperRecyclerView extends FrameLayout {
     }
 
     /**
-     *
      * @return inflated empty view or null
      */
     public View getEmptyView() {
         return mEmptyView;
     }
 
-    public static enum LAYOUT_MANAGER_TYPE {
+    public enum LAYOUT_MANAGER_TYPE {
         LINEAR,
         GRID,
         STAGGERED_GRID
