@@ -296,9 +296,11 @@ public class SuperRecyclerView extends FrameLayout {
                 }
             });
 
-        mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0 && mEmptyId != 0
-                             ? View.GONE
-                             : View.VISIBLE);
+        if (mEmptyId != 0) {
+            mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0 && mEmptyId != 0
+                                 ? View.GONE
+                                 : View.VISIBLE);
+        }
     }
 
     /**

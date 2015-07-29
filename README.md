@@ -1,4 +1,4 @@
-[![GitHub release](https://img.shields.io/badge/sample%20apk-1.1.0-brightgreen.svg?style=flat)](https://github.com/Malinskiy/SuperRecyclerView/releases/download/v1.1.0/superrecyclerview-sample-1.1.0.apk) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SuperRecyclerView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1239)
+[![GitHub release](https://img.shields.io/badge/sample%20apk-1.1.1-brightgreen.svg?style=flat)](https://github.com/Malinskiy/SuperRecyclerView/releases/download/v1.1.1/superrecyclerview-sample-1.1.1.apk) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SuperRecyclerView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1239)
 ==============
 
 ##Description
@@ -18,7 +18,7 @@ Features built in:
 Just add it to you dependencies
 
 ```
-    compile 'com.malinskiy:superrecyclerview:1.1.0'
+    compile 'com.malinskiy:superrecyclerview:1.1.2'
 ```
 
 ##Usage
