@@ -1,6 +1,6 @@
 ![](/img/logo_with_name.png)
 
-##Description
+## Description
 
 This is an attempt to make RecyclerView easier to use.
 
@@ -18,7 +18,7 @@ Please check [CHANGELOG](CHANGELOG.md) for updates.
 
 ```
 dependencies {
-    compile 'co.nullindustries:ultrarecyclerview:1.1.2'
+    compile 'co.nullindustries:ultrarecyclerview:1.1.3'
 }
 ```
 
