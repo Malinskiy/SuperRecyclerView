@@ -1,4 +1,5 @@
 ![](/img/logo_with_name.png)
+[ ![Download](https://api.bintray.com/packages/danielnull/maven/UltraRecyclerView/images/download.svg) ](https://bintray.com/danielnull/maven/UltraRecyclerView/_latestVersion)
 
 ## Description
 
@@ -13,6 +14,12 @@ Features built in:
 - Sticky headers (via [Eowise][eowise-sticky-headers], see sample)
 
 Please check [CHANGELOG](CHANGELOG.md) for updates.
+
+## Publish
+
+To publish:
+
+`./gradlew clean build generateRelease`
 
 ##Integration *GRADLE*
 
@@ -162,12 +169,19 @@ Custom attributes supported:
 
 Commit comments are composed by: `type` `<empty_space>` `message`.
 
-Types:
+Old-Types (DEPRECATED):
 * :muscle: : UPDATE
 * :neckbeard: : ADD 
 * :shipit: : REMOVE
 * :clap:: : FIX
 * :umbrella: : CLEAN
+
+Types:
+* = : UPDATE
+* + : ADD
+* - : REMOVE
+* F : FIX
+* C : CLEAN
 
 Example:
 
