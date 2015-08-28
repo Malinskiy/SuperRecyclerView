@@ -1,6 +1,10 @@
 CHANGELOG
 ============
 
+## 1.1.3
+
+= SDK to 23.0.0 and support libraries to 23.
+
 ## 1.1.2
 
 + `DividerItemDecoration` and `UltraRecyclerView.setItemDecorator(decorator)`.

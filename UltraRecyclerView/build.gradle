@@ -1,34 +1,39 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.0"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 22
-        versionCode 4
-        versionName "1.1.2"
+        targetSdkVersion 23
+        versionCode 0
+        versionName "1.1.3"
     }
     buildTypes {
         release {
             minifyEnabled false
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:22.1.1"
-    compile "com.android.support:support-v4:22.1.1"
-    compile 'com.android.support:recyclerview-v7:22.1.1'
+    compile "com.android.support:appcompat-v7:23.0.0"
+    compile "com.android.support:support-v4:23.0.0"
+    compile 'com.android.support:support-annotations:23.0.0'
+    compile 'com.android.support:recyclerview-v7:23.0.0'
 
     compile 'com.nineoldandroids:library:2.4.0'
 }
 
 ext {
     PUBLISH_GROUP_ID = 'co.nullindustries.ultrarecyclerview'
-    PUBLISH_ARTIFACT_ID =  'ultrarecyclerview'
-    PUBLISH_VERSION = '1.1.2'
+    PUBLISH_ARTIFACT_ID = 'ultrarecyclerview'
+    PUBLISH_VERSION = '1.1.3'
 }
 
 // To publish ./gradlew clean build generateRelease

@@ -1,6 +1,7 @@
 ![](/img/logo_with_name.png)
+[ ![Download](https://api.bintray.com/packages/danielnull/maven/UltraRecyclerView/images/download.svg) ](https://bintray.com/danielnull/maven/UltraRecyclerView/_latestVersion)
 
-##Description
+## Description
 
 This is an attempt to make RecyclerView easier to use.
 
@@ -14,11 +15,17 @@ Features built in:
 
 Please check [CHANGELOG](CHANGELOG.md) for updates.
 
+## Publish
+
+To publish:
+
+`./gradlew clean build generateRelease`
+
 ##Integration *GRADLE*
 
 ```
 dependencies {
-    compile 'co.nullindustries:ultrarecyclerview:1.1.2'
+    compile 'co.nullindustries:ultrarecyclerview:1.1.3'
 }
 ```
 
@@ -162,12 +169,19 @@ Custom attributes supported:
 
 Commit comments are composed by: `type` `<empty_space>` `message`.
 
-Types:
+Old-Types (DEPRECATED):
 * :muscle: : UPDATE
 * :neckbeard: : ADD 
 * :shipit: : REMOVE
 * :clap:: : FIX
 * :umbrella: : CLEAN
+
+Types:
+* = : UPDATE
+* + : ADD
+* - : REMOVE
+* F : FIX
+* C : CLEAN
 
 Example:
 
