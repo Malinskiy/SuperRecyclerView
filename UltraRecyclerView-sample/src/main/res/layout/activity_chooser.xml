@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button_list_sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_grid_sample"
+        android:layout_centerHorizontal="true"
+        android:text="List example"/>
+
+    <Button
+        android:id="@+id/button_grid_sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_staggered_sample"
+        android:layout_centerHorizontal="true"
+        android:text="Grid example"/>
+
+    <Button
+        android:id="@+id/button_staggered_sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Staggered grid example"/>
+
+    <Button
+        android:id="@+id/button_swipe_sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_staggered_sample"
+        android:layout_centerHorizontal="true"
+        android:text="Swipe adapter example"/>
+
+    <Button
+        android:id="@+id/button_header_sample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_swipe_sample"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="Header adapter example"/>
+
+</RelativeLayout>

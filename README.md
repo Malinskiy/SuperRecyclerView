@@ -1,7 +1,7 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SuperRecyclerView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1239)
-==============
+![](/img/logo_with_name.png)
+[ ![Download](https://api.bintray.com/packages/danielnull/maven/UltraRecyclerView/images/download.svg) ](https://bintray.com/danielnull/maven/UltraRecyclerView/_latestVersion)
 
-##Description
+## Description
 
 This is an attempt to make RecyclerView easier to use.
 
@@ -13,20 +13,28 @@ Features built in:
 - Swipe To Dismiss or Swipe To Remove
 - Sticky headers (via [Eowise][eowise-sticky-headers], see sample)
 
-##Integration
+Please check [CHANGELOG](CHANGELOG.md) for updates.
 
-Just add it to you dependencies
+## Publish
+
+To publish:
+
+`./gradlew clean build generateRelease`
+
+##Integration *GRADLE*
 
 ```
-    compile 'com.malinskiy:superrecyclerview:1.1.0'
+dependencies {
+    compile 'co.nullindustries:ultrarecyclerview:1.1.3'
+}
 ```
 
 ##Usage
 
--	Use directly SuperRecyclerView:
+-	Use directly UltraRecyclerView:
 
 ```xml
-   <com.malinskiy.superrecyclerview.SuperRecyclerView
+   <co.nullindustries.ultrarecyclerview.UltraRecyclerView
             android:id="@+id/list"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
@@ -60,7 +68,7 @@ Just add it to you dependencies
     <attr name="mainLayoutId" format="reference"/>
 ```
 
-##SuperRecyclerView Java Usage
+##UltraRecyclerView Java Usage
 
 ```java
     recycler.setRefreshListener(new SwipeRefreshLayout.OnRefreshListener {
@@ -95,7 +103,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 
 ### Vertical scrollbars
 ```xml
-<com.malinskiy.superrecyclerview.SuperRecyclerView
+<co.nullindustries.ultrarecyclerview.UltraRecyclerView
      app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
      app:scrollbarStyle="insideInset"
      .../>
@@ -103,7 +111,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 
 ### Horizontal scrollbars
 ```xml
-<com.malinskiy.superrecyclerview.SuperRecyclerView
+<co.nullindustries.ultrarecyclerview.UltraRecyclerView
      app:mainLayoutId="@layout/layout_recyclerview_horizontalscroll"
      app:scrollbarStyle="insideInset"
      .../>
@@ -123,7 +131,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 Item example:
 
 ```xml
-<com.malinskiy.superrecyclerview.swipe.SwipeLayout
+<co.nullindustries.ultrarecyclerview.swipe.SwipeLayout
     android:id="@id/recyclerview_swipe"
     xmlns:swipe="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -138,7 +146,7 @@ Item example:
         ...
     </LinearLayout>
 
-</com.malinskiy.superrecyclerview.swipe.SwipeLayout>
+</co.nullindustries.ultrarecyclerview.swipe.SwipeLayout>
 ```
 
 Custom attributes supported:
@@ -157,21 +165,51 @@ Custom attributes supported:
     </attr>
 ```
 
+# Commit Format
+
+Commit comments are composed by: `type` `<empty_space>` `message`.
+
+Old-Types (DEPRECATED):
+* :muscle: : UPDATE
+* :neckbeard: : ADD 
+* :shipit: : REMOVE
+* :clap:: : FIX
+* :umbrella: : CLEAN
+
+Types:
+* = : UPDATE
+* + : ADD
+* - : REMOVE
+* F : FIX
+* C : CLEAN
+
+Example:
+
+`:muscle: change the dialogs style`: means there was an update over the dialogs style
+`:neckbeard: new dialogs library`: means you added something
+`:clap: showing dialogs crash`: means that you fixed something
+`:clap: showing dialogs crash`: means that you fixed something
+`:clap: showing dialogs crash`: means that you fixed something
+
 
 ####[Sample java][sample java]
 
 ##Thanks
-[Jake Warthon][jake-swipe-to-dismiss] for implementation of SwipeToDismiss via NineOldAndroids
+[Malinskiy](https://github.com/Malinskiy/UltraRecyclerView) for the base version of this library.
 
-[Eowise][eowise-sticky-headers] for implementation of sticky headers
+[Jake Warthon][jake-swipe-to-dismiss] for implementation of SwipeToDismiss via NineOldAndroids.
 
-[Quentin Dommerc][superlistview] for inspiration
+[Eowise][eowise-sticky-headers] for implementation of sticky headers.
 
-[代码家][swipelayout] for swipe layout implementation
+[Quentin Dommerc][superlistview] for inspiration.
+
+[代码家][swipelayout] for swipe layout implementation.
+
+[hteSquid][theSquid.ink] icon :).
 
 ##License
 
-    Copyright (c) 2014 Anton Malinskiy
+    Copyright (c) 2015 Null Industries
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -186,8 +224,9 @@ Custom attributes supported:
     limitations under the License.
     Come on, don't tell me you read that.
 
-[sample java]:https://github.com/Malinskiy/SuperRecyclerView/blob/master/SuperRecyclerView-sample/src/main/java/com/malinskiy/superrecyclerview/sample/BaseActivity.java
+[sample java]:https://github.com/nullindustries/UltraRecyclerView/blob/master/UltraRecyclerView-sample/src/main/java/co/nullindustries/superrecyclerview/sample/BaseActivity.java
 [jake-swipe-to-dismiss]:https://github.com/JakeWharton/SwipeToDismissNOA
 [eowise-sticky-headers]:https://github.com/eowise/recyclerview-stickyheaders
 [superlistview]:https://github.com/dommerq/SuperListview
 [swipelayout]:https://github.com/daimajia/AndroidSwipeLayout
+[theSquid.ink]:https://www.iconfinder.com/iconsets/thesquid-ink-40-free-flat-icon-pack
