@@ -183,7 +183,7 @@ public class SuperRecyclerView extends FrameLayout {
         int totalItemCount = layoutManager.getItemCount();
 
         if (((totalItemCount - lastVisibleItemPosition) <= ITEM_LEFT_TO_LOAD_MORE ||
-             (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
+             (totalItemCount - lastVisibleItemPosition) == 0) && (totalItemCount > visibleItemCount)
             && !isLoadingMore) {
 
             isLoadingMore = true;
