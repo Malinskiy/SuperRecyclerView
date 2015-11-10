@@ -145,8 +145,6 @@ public class SuperRecyclerView extends FrameLayout {
                 public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
 
-                    processOnMore();
-
                     if (mExternalOnScrollListener != null)
                         mExternalOnScrollListener.onScrolled(recyclerView, dx, dy);
                     if (mSwipeDismissScrollListener != null)
