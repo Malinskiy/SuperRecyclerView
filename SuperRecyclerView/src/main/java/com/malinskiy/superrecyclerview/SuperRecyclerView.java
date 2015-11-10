@@ -156,10 +156,15 @@ public class SuperRecyclerView extends FrameLayout {
                 @Override
                 public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                     super.onScrollStateChanged(recyclerView, newState);
-                    if (mExternalOnScrollListener != null)
+                    if (mExternalOnScrollListener != null) {
                         mExternalOnScrollListener.onScrollStateChanged(recyclerView, newState);
-                    if (mSwipeDismissScrollListener != null)
+                    }
+                    if (mSwipeDismissScrollListener != null) {
                         mSwipeDismissScrollListener.onScrollStateChanged(recyclerView, newState);
+                    }
+                    if(newState == RecyclerView.SCROLL_STATE_IDLE) {
+                        processOnMore();
+                    }
                 }
             };
             mRecycler.addOnScrollListener(mInternalOnScrollListener);
