@@ -381,6 +381,10 @@ public class SuperRecyclerView extends FrameLayout {
         mMoreProgress.setVisibility(View.GONE);
     }
 
+    public void setRefreshing(boolean refreshing) {
+        mPtrLayout.setRefreshing(refreshing);
+    }
+
     /**
      * Set the listener when refresh is triggered and enable the SwipeRefreshLayout
      *
