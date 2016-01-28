@@ -144,153 +144,126 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
 
         switch (MotionEventCompat.getActionMasked(motionEvent)) {
             case MotionEvent.ACTION_DOWN: {
-                if (mPaused) {
-                    return false;
-                }
-
-                // Find the child view that was touched (perform a hit test)
-                Rect rect = new Rect();
-                int childCount = mRecyclerView.getChildCount();
-                int[] listViewCoords = new int[2];
-                mRecyclerView.getLocationOnScreen(listViewCoords);
-                int x = (int) motionEvent.getRawX() - listViewCoords[0];
-                int y = (int) motionEvent.getRawY() - listViewCoords[1];
-                View child;
-                for (int i = 0; i < childCount; i++) {
-                    child = mRecyclerView.getChildAt(i);
-                    child.getHitRect(rect);
-                    if (rect.contains(x, y)) {
-                        mDownView = child;
-                        break;
-                    }
-                }
-
-                if (mDownView != null) {
-                    mDownX = motionEvent.getRawX();
-                    mDownY = motionEvent.getRawY();
-                    mDownPosition = mRecyclerView.getChildPosition(mDownView);
-                    if (mCallbacks.canDismiss(mDownPosition)) {
-                        mVelocityTracker = VelocityTracker.obtain();
-                        mVelocityTracker.addMovement(motionEvent);
-                    } else {
-                        mDownView = null;
-                    }
-                }
+                if (mPaused)  return false;
+                caseMotionActionDown(motionEvent);
                 return false;
             }
 
             case MotionEvent.ACTION_CANCEL: {
-                if (mVelocityTracker == null) {
-                    break;
-                }
-
-                if (mDownView != null && mSwiping) {
-                    // cancel
-                    animate(mDownView)
-                            .translationX(0)
-                            .alpha(1)
-                            .setDuration(mAnimationTime)
-                            .setListener(null);
-                }
-                mVelocityTracker.recycle();
-                mVelocityTracker = null;
-                mDownX = 0;
-                mDownY = 0;
-                mDownView = null;
-                mDownPosition = INVALID_POSITION;
-                mSwiping = false;
+                if (mVelocityTracker == null) break;
+                caseMotionActionCancel();
                 break;
             }
 
             case MotionEvent.ACTION_UP: {
-                if (mVelocityTracker == null) {
-                    break;
-                }
-
-                float deltaX = motionEvent.getRawX() - mDownX;
-                mVelocityTracker.addMovement(motionEvent);
-                mVelocityTracker.computeCurrentVelocity(1000);
-                float velocityX = mVelocityTracker.getXVelocity();
-                float absVelocityX = Math.abs(velocityX);
-                float absVelocityY = Math.abs(mVelocityTracker.getYVelocity());
-                boolean dismiss = false;
-                boolean dismissRight = false;
-                if (Math.abs(deltaX) > mViewWidth / 2 && mSwiping) {
-                    dismiss = true;
-                    dismissRight = deltaX > 0;
-                } else if (mMinFlingVelocity <= absVelocityX && absVelocityX <= mMaxFlingVelocity
-                           && absVelocityY < absVelocityX && mSwiping) {
-                    // dismiss only if flinging in the same direction as dragging
-                    dismiss = (velocityX < 0) == (deltaX < 0);
-                    dismissRight = mVelocityTracker.getXVelocity() > 0;
-                }
-                if (dismiss && mDownPosition != INVALID_POSITION) {
-                    // dismiss
-                    final View downView = mDownView; // mDownView gets null'd before animation ends
-                    final int downPosition = mDownPosition;
-                    ++mDismissAnimationRefCount;
-                    animate(mDownView)
-                            .translationX(dismissRight ? mViewWidth : -mViewWidth)
-                            .alpha(0)
-                            .setDuration(mAnimationTime)
-                            .setListener(new com.nineoldandroids.animation.AnimatorListenerAdapter() {
-                                @Override
-                                public void onAnimationEnd(com.nineoldandroids.animation.Animator animation) {
-                                    super.onAnimationEnd(animation);
-                                    performDismiss(downView, downPosition);
-                                }
-                            });
-                } else {
-                    // cancel
-                    animate(mDownView)
-                            .translationX(0)
-                            .alpha(1)
-                            .setDuration(mAnimationTime)
-                            .setListener(null);
-                }
-                mVelocityTracker.recycle();
-                mVelocityTracker = null;
-                mDownX = 0;
-                mDownY = 0;
-                mDownView = null;
-                mDownPosition = INVALID_POSITION;
-                mSwiping = false;
+                if (mVelocityTracker == null) break;
+                caseMotionActionUp(motionEvent);
                 break;
             }
 
             case MotionEvent.ACTION_MOVE: {
-                if (mVelocityTracker == null || mPaused) {
-                    break;
-                }
-
-                mVelocityTracker.addMovement(motionEvent);
-                float deltaX = motionEvent.getRawX() - mDownX;
-                float deltaY = motionEvent.getRawY() - mDownY;
-                if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2) {
-                    mSwiping = true;
-                    mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
-                    mRecyclerView.requestDisallowInterceptTouchEvent(true);
-
-                    // Cancel ListView's touch (un-highlighting the item)
-                    MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
-                    cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
-                                          (MotionEventCompat.getActionIndex(motionEvent)
-                                           << MotionEventCompat.ACTION_POINTER_INDEX_SHIFT));
-                    mRecyclerView.onTouchEvent(cancelEvent);
-                    cancelEvent.recycle();
-                }
-
-                if (mSwiping) {
-                    setTranslationX(mDownView, deltaX - mSwipingSlop);
-                    setAlpha(mDownView, Math.max(0f, Math.min(1f,
-                                                              1f - 2f * Math.abs(deltaX) / mViewWidth)));
-                    return true;
-                }
+                if (mVelocityTracker == null || mPaused) break;
+                caseMotionActionMove(motionEvent);
+                if (mSwiping) return true;
                 break;
             }
         }
         return false;
     }
+
+    private void caseMotionActionMove(MotionEvent motionEvent) {
+        mVelocityTracker.addMovement(motionEvent);
+        float deltaX = motionEvent.getRawX() - mDownX;
+        float deltaY = motionEvent.getRawY() - mDownY;
+        if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2) {
+            mSwiping = true;
+            mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
+            mRecyclerView.requestDisallowInterceptTouchEvent(true);
+
+            // Cancel ListView's touch (un-highlighting the item)
+            MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
+            cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
+                    (MotionEventCompat.getActionIndex(motionEvent)
+                            << MotionEventCompat.ACTION_POINTER_INDEX_SHIFT));
+            mRecyclerView.onTouchEvent(cancelEvent);
+            cancelEvent.recycle();
+            if (mSwiping) {
+                setTranslationX(mDownView, deltaX - mSwipingSlop);
+                setAlpha(mDownView, Math.max(0f, Math.min(1f,
+                        1f - 2f * Math.abs(deltaX) / mViewWidth)));
+            }
+        }
+    }
+
+    private void caseMotionActionUp(MotionEvent motionEvent) {
+        float deltaX = motionEvent.getRawX() - mDownX;
+        mVelocityTracker.addMovement(motionEvent);
+        mVelocityTracker.computeCurrentVelocity(1000);
+        float velocityX = mVelocityTracker.getXVelocity();
+        float absVelocityX = Math.abs(velocityX);
+        float absVelocityY = Math.abs(mVelocityTracker.getYVelocity());
+        boolean dismiss = false;
+        boolean dismissRight = false;
+        if (Math.abs(deltaX) > mViewWidth / 2 && mSwiping) {
+            dismiss = true;
+            dismissRight = deltaX > 0;
+        } else if (mMinFlingVelocity <= absVelocityX && absVelocityX <= mMaxFlingVelocity
+                && absVelocityY < absVelocityX && mSwiping) {
+            // dismiss only if flinging in the same direction as dragging
+            dismiss = (velocityX < 0) == (deltaX < 0);
+            dismissRight = mVelocityTracker.getXVelocity() > 0;
+        }
+        if (dismiss && mDownPosition != INVALID_POSITION) {
+            // dismiss
+            final View downView = mDownView; // mDownView gets null'd before animation ends
+            final int downPosition = mDownPosition;
+            ++mDismissAnimationRefCount;
+            animate(mDownView)
+                    .translationX(dismissRight ? mViewWidth : -mViewWidth)
+                    .alpha(0)
+                    .setDuration(mAnimationTime)
+                    .setListener(new com.nineoldandroids.animation.AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(com.nineoldandroids.animation.Animator animation) {
+                            super.onAnimationEnd(animation);
+                            performDismiss(downView, downPosition);
+                        }
+                    });
+        } else {
+            // cancel
+            animate(mDownView)
+                    .translationX(0)
+                    .alpha(1)
+                    .setDuration(mAnimationTime)
+                    .setListener(null);
+        }
+        mVelocityTracker.recycle();
+        mVelocityTracker = null;
+        mDownX = 0;
+        mDownY = 0;
+        mDownView = null;
+        mDownPosition = INVALID_POSITION;
+        mSwiping = false;
+    }
+
+    private void caseMotionActionCancel() {
+        if (mDownView != null && mSwiping) {
+            // cancel
+            animate(mDownView)
+                    .translationX(0)
+                    .alpha(1)
+                    .setDuration(mAnimationTime)
+                    .setListener(null);
+        }
+        mVelocityTracker.recycle();
+        mVelocityTracker = null;
+        mDownX = 0;
+        mDownY = 0;
+        mDownView = null;
+        mDownPosition = INVALID_POSITION;
+        mSwiping = false;
+    }
+
 
     class PendingDismissData implements Comparable<PendingDismissData> {
         public int  position;
@@ -368,5 +341,36 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
 
         mPendingDismisses.add(new PendingDismissData(dismissPosition, dismissView));
         animator.start();
+    }
+    
+    private void caseMotionActionDown(MotionEvent motionEvent) {
+        // Find the child view that was touched (perform a hit test)
+        Rect rect = new Rect();
+        int childCount = mRecyclerView.getChildCount();
+        int[] listViewCoords = new int[2];
+        mRecyclerView.getLocationOnScreen(listViewCoords);
+        int x = (int) motionEvent.getRawX() - listViewCoords[0];
+        int y = (int) motionEvent.getRawY() - listViewCoords[1];
+        View child;
+        for (int i = 0; i < childCount; i++) {
+            child = mRecyclerView.getChildAt(i);
+            child.getHitRect(rect);
+            if (rect.contains(x, y)) {
+                mDownView = child;
+                break;
+            }
+        }
+
+        if (mDownView != null) {
+            mDownX = motionEvent.getRawX();
+            mDownY = motionEvent.getRawY();
+            mDownPosition = mRecyclerView.getChildPosition(mDownView);
+            if (mCallbacks.canDismiss(mDownPosition)) {
+                mVelocityTracker = VelocityTracker.obtain();
+                mVelocityTracker.addMovement(motionEvent);
+            } else {
+                mDownView = null;
+            }
+        }
     }
 }

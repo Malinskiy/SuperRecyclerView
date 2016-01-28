@@ -216,16 +216,21 @@ public class SuperRecyclerView extends FrameLayout {
                 lastVisibleItemPosition = ((GridLayoutManager) layoutManager).findLastVisibleItemPosition();
                 break;
             case STAGGERED_GRID:
-                StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
-                if (lastScrollPositions == null)
-                    lastScrollPositions = new int[staggeredGridLayoutManager.getSpanCount()];
-
-                staggeredGridLayoutManager.findLastVisibleItemPositions(lastScrollPositions);
-                lastVisibleItemPosition = findMax(lastScrollPositions);
+                lastVisibleItemPosition = caseStaggeredGrid();
                 break;
         }
         return lastVisibleItemPosition;
     }
+
+    private int caseStaggeredGrid() {
+        StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
+        if (lastScrollPositions == null)
+            lastScrollPositions = new int[staggeredGridLayoutManager.getSpanCount()];
+
+        staggeredGridLayoutManager.findLastVisibleItemPositions(lastScrollPositions);
+        return findMax(lastScrollPositions);
+    }
+
 
     private int findMax(int[] lastPositions) {
         int max = Integer.MIN_VALUE;
