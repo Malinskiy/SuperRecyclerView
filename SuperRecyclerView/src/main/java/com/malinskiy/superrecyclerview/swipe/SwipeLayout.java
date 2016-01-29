@@ -19,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 
 import com.malinskiy.superrecyclerview.R;
+import com.malinskiy.util.FloatUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -581,7 +582,7 @@ public class SwipeLayout extends FrameLayout {
 
                 for (OnRevealListener l : entry.getValue()) {
                     l.onReveal(child, mDragEdge, Math.abs(fraction), distance);
-                    if (Math.abs(fraction) == 1) {
+                    if (FloatUtil.compareFloats(Math.abs(fraction), 1)) {
                         mShowEntirely.put(child, true);
                     }
                 }
@@ -805,7 +806,7 @@ public class SwipeLayout extends FrameLayout {
 
                 return true;
             case MotionEvent.ACTION_MOVE: {
-                if (sX == -1 || sY == -1) {
+                if (FloatUtil.compareFloats(sX, -1) || FloatUtil.compareFloats(sY, -1)) {
                     // Trick:
                     // When in nested mode, we need to send a constructed ACTION_DOWN MotionEvent to mDragHelper, to help
                     // it initialize itself.
@@ -1083,7 +1084,7 @@ public class SwipeLayout extends FrameLayout {
      * @param yvel
      */
     private void processSurfaceRelease(float xvel, float yvel) {
-        if (xvel == 0 && getOpenStatus() == Status.Middle)
+        if (FloatUtil.compareFloats(xvel, 0) && getOpenStatus() == Status.Middle)
             close();
 
         if (mDragEdge == DragEdge.Left || mDragEdge == DragEdge.Right) {
@@ -1115,7 +1116,7 @@ public class SwipeLayout extends FrameLayout {
      */
     private void processBottomPullOutRelease(float xvel, float yvel) {
 
-        if (xvel == 0 && getOpenStatus() == Status.Middle)
+        if (FloatUtil.compareFloats(xvel, 0) && getOpenStatus() == Status.Middle)
             close();
 
         if (mDragEdge == DragEdge.Left || mDragEdge == DragEdge.Right) {
@@ -1148,7 +1149,7 @@ public class SwipeLayout extends FrameLayout {
      */
     private void processBottomLayDownMode(float xvel, float yvel) {
 
-        if (xvel == 0 && getOpenStatus() == Status.Middle)
+        if (FloatUtil.compareFloats(xvel, 0) && getOpenStatus() == Status.Middle)
             close();
 
         int l = getPaddingLeft(), t = getPaddingTop();
