@@ -145,8 +145,6 @@ public class SuperRecyclerView extends FrameLayout {
                 public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
 
-                    processOnMore();
-
                     if (mExternalOnScrollListener != null)
                         mExternalOnScrollListener.onScrolled(recyclerView, dx, dy);
                     if (mSwipeDismissScrollListener != null)
@@ -156,10 +154,15 @@ public class SuperRecyclerView extends FrameLayout {
                 @Override
                 public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                     super.onScrollStateChanged(recyclerView, newState);
-                    if (mExternalOnScrollListener != null)
+                    if (mExternalOnScrollListener != null) {
                         mExternalOnScrollListener.onScrollStateChanged(recyclerView, newState);
-                    if (mSwipeDismissScrollListener != null)
+                    }
+                    if (mSwipeDismissScrollListener != null) {
                         mSwipeDismissScrollListener.onScrollStateChanged(recyclerView, newState);
+                    }
+                    if(newState == RecyclerView.SCROLL_STATE_IDLE) {
+                        processOnMore();
+                    }
                 }
             };
             mRecycler.addOnScrollListener(mInternalOnScrollListener);
@@ -183,7 +186,7 @@ public class SuperRecyclerView extends FrameLayout {
         int totalItemCount = layoutManager.getItemCount();
 
         if (((totalItemCount - lastVisibleItemPosition) <= ITEM_LEFT_TO_LOAD_MORE ||
-             (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
+             (totalItemCount - lastVisibleItemPosition) == 0) && (totalItemCount > visibleItemCount)
             && !isLoadingMore) {
 
             isLoadingMore = true;
