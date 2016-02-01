@@ -794,90 +794,20 @@ public class SwipeLayout extends FrameLayout {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                mDragHelper.processTouchEvent(event);
-                parent.requestDisallowInterceptTouchEvent(true);
-
-                sX = event.getRawX();
-                sY = event.getRawY();
-
-                if (touching != null)
-                    touching.setPressed(true);
-
+                caseMotionActionDown(event,parent,touching);
                 return true;
             case MotionEvent.ACTION_MOVE: {
                 if (sX == -1 || sY == -1) {
-                    // Trick:
-                    // When in nested mode, we need to send a constructed ACTION_DOWN MotionEvent to mDragHelper, to help
-                    // it initialize itself.
-                    event.setAction(MotionEvent.ACTION_DOWN);
-                    mDragHelper.processTouchEvent(event);
-                    parent.requestDisallowInterceptTouchEvent(true);
-                    sX = event.getRawX();
-                    sY = event.getRawY();
+                    caseMotionActionMoveFirstBranch(event, parent);
                     return true;
                 }
-
-                float distanceX = event.getRawX() - sX;
-                float distanceY = event.getRawY() - sY;
-                float angle = Math.abs(distanceY / distanceX);
-                angle = (float) Math.toDegrees(Math.atan(angle));
-
-                boolean doNothing = false;
-                if (mDragEdge == DragEdge.Right) {
-                    boolean suitable = (status == Status.Open && distanceX > 0) || (status == Status.Close && distanceX < 0);
-                    suitable = suitable || (status == Status.Middle);
-
-                    if (angle > 30 || !suitable) {
-                        doNothing = true;
-                    }
-                }
-
-                if (mDragEdge == DragEdge.Left) {
-                    boolean suitable = (status == Status.Open && distanceX < 0) || (status == Status.Close && distanceX > 0);
-                    suitable = suitable || status == Status.Middle;
-
-                    if (angle > 30 || !suitable) {
-                        doNothing = true;
-                    }
-                }
-
-                if (mDragEdge == DragEdge.Top) {
-                    boolean suitable = (status == Status.Open && distanceY < 0) || (status == Status.Close && distanceY > 0);
-                    suitable = suitable || status == Status.Middle;
-
-                    if (angle < 60 || !suitable) {
-                        doNothing = true;
-                    }
-                }
-
-                if (mDragEdge == DragEdge.Bottom) {
-                    boolean suitable = (status == Status.Open && distanceY > 0) || (status == Status.Close && distanceY < 0);
-                    suitable = suitable || status == Status.Middle;
-
-                    if (angle < 60 || !suitable) {
-                        doNothing = true;
-                    }
-                }
-
-                if (doNothing) {
-                    parent.requestDisallowInterceptTouchEvent(false);
-                    return false;
-                } else {
-                    if (touching != null) {
-                        touching.setPressed(false);
-                    }
-                    parent.requestDisallowInterceptTouchEvent(true);
-                    mDragHelper.processTouchEvent(event);
-                }
+                boolean doNothing = caseMotionActionMoveSecondBranch(event, status, parent, touching);
+                if(doNothing) return false;
                 break;
             }
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL: {
-                sX = -1;
-                sY = -1;
-                if (touching != null) {
-                    touching.setPressed(false);
-                }
+                caseMotionActionCancel(touching);
             }
             default:
                 parent.requestDisallowInterceptTouchEvent(true);
@@ -886,6 +816,92 @@ public class SwipeLayout extends FrameLayout {
 
         return true;
     }
+
+    private void caseMotionActionCancel(ViewGroup touching) {
+        sX = -1;
+        sY = -1;
+        if (touching != null) {
+            touching.setPressed(false);
+        }
+    }
+
+    private boolean caseMotionActionMoveSecondBranch(MotionEvent event, Status status, ViewParent parent, ViewGroup touching) {
+        float distanceX = event.getRawX() - sX;
+        float distanceY = event.getRawY() - sY;
+        float angle = Math.abs(distanceY / distanceX);
+        angle = (float) Math.toDegrees(Math.atan(angle));
+
+        boolean doNothing = false;
+        if (mDragEdge == DragEdge.Right) {
+            boolean suitable = (status == Status.Open && distanceX > 0) || (status == Status.Close && distanceX < 0);
+            suitable = suitable || (status == Status.Middle);
+
+            if (angle > 30 || !suitable) {
+                doNothing = true;
+            }
+        }
+
+        if (mDragEdge == DragEdge.Left) {
+            boolean suitable = (status == Status.Open && distanceX < 0) || (status == Status.Close && distanceX > 0);
+            suitable = suitable || status == Status.Middle;
+
+            if (angle > 30 || !suitable) {
+                doNothing = true;
+            }
+        }
+
+        if (mDragEdge == DragEdge.Top) {
+            boolean suitable = (status == Status.Open && distanceY < 0) || (status == Status.Close && distanceY > 0);
+            suitable = suitable || status == Status.Middle;
+
+            if (angle < 60 || !suitable) {
+                doNothing = true;
+            }
+        }
+
+        if (mDragEdge == DragEdge.Bottom) {
+            boolean suitable = (status == Status.Open && distanceY > 0) || (status == Status.Close && distanceY < 0);
+            suitable = suitable || status == Status.Middle;
+
+            if (angle < 60 || !suitable) {
+                doNothing = true;
+            }
+        }
+
+        if (doNothing) {
+            parent.requestDisallowInterceptTouchEvent(false);
+        } else {
+            if (touching != null) {
+                touching.setPressed(false);
+            }
+            parent.requestDisallowInterceptTouchEvent(true);
+            mDragHelper.processTouchEvent(event);
+        }
+        return doNothing;
+    }
+
+    private void caseMotionActionMoveFirstBranch(MotionEvent event, ViewParent parent) {
+        // Trick:
+        // When in nested mode, we need to send a constructed ACTION_DOWN MotionEvent to mDragHelper, to help
+        // it initialize itself.
+        event.setAction(MotionEvent.ACTION_DOWN);
+        mDragHelper.processTouchEvent(event);
+        parent.requestDisallowInterceptTouchEvent(true);
+        sX = event.getRawX();
+        sY = event.getRawY();
+    }
+
+    private void caseMotionActionDown(MotionEvent event, ViewParent parent, ViewGroup touching) {
+        mDragHelper.processTouchEvent(event);
+        parent.requestDisallowInterceptTouchEvent(true);
+
+        sX = event.getRawX();
+        sY = event.getRawY();
+
+        if (touching != null)
+            touching.setPressed(true);
+    }
+   
 
     /**
      * if working in {@link android.widget.AdapterView}, we should response {@link android.widget.Adapter}
