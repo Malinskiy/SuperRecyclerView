@@ -216,9 +216,16 @@ public class SuperRecyclerView extends FrameLayout {
                 lastVisibleItemPosition = ((GridLayoutManager) layoutManager).findLastVisibleItemPosition();
                 break;
             case STAGGERED_GRID:
-                StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
-                if (lastScrollPositions == null)
-                    lastScrollPositions = new int[staggeredGridLayoutManager.getSpanCount()];
+                lastVisibleItemPosition = caseStaggeredGrid(layoutManager);
+                break;
+        }
+        return lastVisibleItemPosition;
+    }
+
+    private int caseStaggeredGrid(RecyclerView.LayoutManager layoutManager) {
+        StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
+        if (lastScrollPositions == null)
+            lastScrollPositions = new int[staggeredGridLayoutManager.getSpanCount()];
 
                 staggeredGridLayoutManager.findLastVisibleItemPositions(lastScrollPositions);
                 lastVisibleItemPosition = findMax(lastScrollPositions);
@@ -296,9 +303,11 @@ public class SuperRecyclerView extends FrameLayout {
                 }
             });
 
-        mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0 && mEmptyId != 0
-                             ? View.GONE
-                             : View.VISIBLE);
+        if (mEmptyId != 0) {
+            mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0
+                    ? View.GONE
+                    : View.VISIBLE);
+        }
     }
 
     /**
