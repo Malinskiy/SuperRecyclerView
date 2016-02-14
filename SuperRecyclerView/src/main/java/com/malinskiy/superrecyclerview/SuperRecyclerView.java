@@ -1,6 +1,7 @@
 package com.malinskiy.superrecyclerview;
 
 import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
+import com.malinskiy.superrecyclerview.util.FloatUtil;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -164,7 +165,7 @@ public class SuperRecyclerView extends FrameLayout {
             };
             mRecycler.addOnScrollListener(mInternalOnScrollListener);
 
-            if (mPadding != -1.0f) {
+            if (!FloatUtil.compareFloats(mPadding, -1.0f)) {
                 mRecycler.setPadding(mPadding, mPadding, mPadding, mPadding);
             } else {
                 mRecycler.setPadding(mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom);
