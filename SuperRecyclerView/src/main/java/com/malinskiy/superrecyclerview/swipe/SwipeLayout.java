@@ -50,7 +50,7 @@ public class SwipeLayout extends FrameLayout {
         Left,
         Right,
         Top,
-        Bottom;
+        Bottom
     }
 
     public enum ShowMode {
@@ -361,15 +361,6 @@ public class SwipeLayout extends FrameLayout {
     /**
      * the dispatchRevealEvent method may not always get accurate position, it makes the view may not always get the event when the view is
      * totally show( fraction = 1), so , we need to calculate every time.
-     *
-     * @param child
-     * @param relativePosition
-     * @param edge
-     * @param surfaceLeft
-     * @param surfaceTop
-     * @param surfaceRight
-     * @param surfaceBottom
-     * @return
      */
     protected boolean isViewTotallyFirstShowed(View child, Rect relativePosition, DragEdge edge, int surfaceLeft, int surfaceTop, int surfaceRight, int surfaceBottom) {
         if (mShowEntirely.get(child))
@@ -686,11 +677,11 @@ public class SwipeLayout extends FrameLayout {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
 
-        if (!isEnabled() || !isEnabledInAdapterView()) {
+        if (!isEnabled() || isDisabledInAdapterView()) {
             return true;
         }
 
-        if (!isSwipeEnabled()) {
+        if (isSwipeDisabled()) {
             return false;
         }
 
@@ -724,10 +715,6 @@ public class SwipeLayout extends FrameLayout {
 
     /**
      * if the ViewGroup children want to handle this event.
-     *
-     * @param v
-     * @param event
-     * @return
      */
     private View childNeedHandleTouchEvent(ViewGroup v, MotionEvent event) {
         if (v == null) return null;
@@ -751,10 +738,6 @@ public class SwipeLayout extends FrameLayout {
 
     /**
      * if the view (v) wants to handle this event.
-     *
-     * @param v
-     * @param event
-     * @return
      */
     private boolean childNeedHandleTouchEvent(View v, MotionEvent event) {
         if (v == null) return false;
@@ -775,10 +758,10 @@ public class SwipeLayout extends FrameLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (!isEnabledInAdapterView() || !isEnabled())
+        if (isDisabledInAdapterView() || !isEnabled())
             return true;
 
-        if (!isSwipeEnabled())
+        if (isSwipeDisabled())
             return super.onTouchEvent(event);
 
         int action = MotionEventCompat.getActionMasked(event);
@@ -902,7 +885,7 @@ public class SwipeLayout extends FrameLayout {
         if (touching != null)
             touching.setPressed(true);
     }
-   
+
 
     /**
      * if working in {@link android.widget.AdapterView}, we should response {@link android.widget.Adapter}
@@ -910,7 +893,7 @@ public class SwipeLayout extends FrameLayout {
      *
      * @return true when item is enabled, else disabled.
      */
-    private boolean isEnabledInAdapterView() {
+    private boolean isDisabledInAdapterView() {
         AdapterView adapterView = getAdapterView();
         boolean enable = true;
         if (adapterView != null) {
@@ -924,15 +907,15 @@ public class SwipeLayout extends FrameLayout {
                 }
             }
         }
-        return enable;
+        return !enable;
     }
 
     public void setSwipeEnabled(boolean enabled) {
         mSwipeEnabled = enabled;
     }
 
-    public boolean isSwipeEnabled() {
-        return mSwipeEnabled;
+    public boolean isSwipeDisabled() {
+        return !mSwipeEnabled;
     }
 
     private boolean insideAdapterView() {
@@ -979,9 +962,6 @@ public class SwipeLayout extends FrameLayout {
          * Simulate the touch event lifecycle. If you use SwipeLayout in {@link android.widget.AdapterView}
          * ({@link android.widget.ListView}, {@link android.widget.GridView} etc.) It will manually call
          * {@link android.widget.AdapterView}.performItemClick, performItemLongClick.
-         *
-         * @param e
-         * @return
          */
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
@@ -1029,8 +1009,6 @@ public class SwipeLayout extends FrameLayout {
 
     /**
      * set the drag distance, it will force set the bottom view's width or height via this value.
-     *
-     * @param max
      */
     public void setDragDistance(int max) {
         if (max < 0)
@@ -1042,8 +1020,6 @@ public class SwipeLayout extends FrameLayout {
     /**
      * There are 2 diffirent show mode.
      * {@link SwipeLayout.ShowMode}.PullOut and {@link SwipeLayout.ShowMode}.LayDown.
-     *
-     * @param mode
      */
     public void setShowMode(ShowMode mode) {
         mShowMode = mode;
@@ -1095,9 +1071,6 @@ public class SwipeLayout extends FrameLayout {
 
     /**
      * Process the surface release event.
-     *
-     * @param xvel
-     * @param yvel
      */
     private void processSurfaceRelease(float xvel, float yvel) {
         if (FloatUtil.compareFloats(xvel, 0) && getOpenStatus() == Status.Middle)
@@ -1126,9 +1099,6 @@ public class SwipeLayout extends FrameLayout {
 
     /**
      * process bottom (PullOut mode) hand release event.
-     *
-     * @param xvel
-     * @param yvel
      */
     private void processBottomPullOutRelease(float xvel, float yvel) {
 
@@ -1159,9 +1129,6 @@ public class SwipeLayout extends FrameLayout {
 
     /**
      * process bottom (LayDown mode) hand release event.
-     *
-     * @param xvel
-     * @param yvel
      */
     private void processBottomLayDownMode(float xvel, float yvel) {
 
@@ -1267,7 +1234,6 @@ public class SwipeLayout extends FrameLayout {
      * a helper function to compute the Rect area that surface will hold in.
      *
      * @param open open status or close status.
-     * @return
      */
     private Rect computeSurfaceLayoutArea(boolean open) {
         int l = getPaddingLeft(), t = getPaddingTop();
@@ -1282,21 +1248,20 @@ public class SwipeLayout extends FrameLayout {
 
 
     private Rect computeBottomLayoutAreaViaSurface(ShowMode mode, Rect surfaceArea) {
-        Rect rect = surfaceArea;
 
-        int bl = rect.left, bt = rect.top, br = rect.right, bb = rect.bottom;
+        int bl = surfaceArea.left, bt = surfaceArea.top, br = surfaceArea.right, bb = surfaceArea.bottom;
         if (mode == ShowMode.PullOut) {
-            if (mDragEdge == DragEdge.Left) bl = rect.left - mDragDistance;
-            else if (mDragEdge == DragEdge.Right) bl = rect.right;
-            else if (mDragEdge == DragEdge.Top) bt = rect.top - mDragDistance;
-            else bt = rect.bottom;
+            if (mDragEdge == DragEdge.Left) bl = surfaceArea.left - mDragDistance;
+            else if (mDragEdge == DragEdge.Right) bl = surfaceArea.right;
+            else if (mDragEdge == DragEdge.Top) bt = surfaceArea.top - mDragDistance;
+            else bt = surfaceArea.bottom;
 
             if (mDragEdge == DragEdge.Left || mDragEdge == DragEdge.Right) {
-                bb = rect.bottom;
+                bb = surfaceArea.bottom;
                 br = bl + getBottomView().getMeasuredWidth();
             } else {
                 bb = bt + getBottomView().getMeasuredHeight();
-                br = rect.right;
+                br = surfaceArea.right;
             }
         } else if (mode == ShowMode.LayDown) {
             if (mDragEdge == DragEdge.Left) br = bl + mDragDistance;

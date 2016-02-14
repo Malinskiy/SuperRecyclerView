@@ -16,9 +16,14 @@
 
 package com.malinskiy.superrecyclerview.swipe;
 
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.ValueAnimator;
+
 import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
@@ -26,10 +31,6 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import com.nineoldandroids.animation.ValueAnimator;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,12 +55,11 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
     private int mViewWidth = 1; // 1 and not 0 to prevent dividing by zero
 
     // Transient properties
-    private List<PendingDismissData> mPendingDismisses         = new ArrayList<PendingDismissData>();
+    private List<PendingDismissData> mPendingDismisses = new ArrayList<>();
     private int                      mDismissAnimationRefCount = 0;
     private float           mDownX;
     private float           mDownY;
     private boolean         mSwiping;
-    private int             mSwipingSlop;
     private VelocityTracker mVelocityTracker;
     private int             mDownPosition;
     private View            mDownView;
@@ -177,7 +177,7 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
         float deltaY = motionEvent.getRawY() - mDownY;
         if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2) {
             mSwiping = true;
-            mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
+            int mSwipingSlop = (deltaX > 0 ? mSlop : -mSlop);
             mRecyclerView.requestDisallowInterceptTouchEvent(true);
 
             // Cancel ListView's touch (un-highlighting the item)
@@ -275,7 +275,7 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
         }
 
         @Override
-        public int compareTo(PendingDismissData other) {
+        public int compareTo(@NonNull PendingDismissData other) {
             // Sort by descending position
             return other.position - position;
         }
@@ -364,7 +364,7 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
         if (mDownView != null) {
             mDownX = motionEvent.getRawX();
             mDownY = motionEvent.getRawY();
-            mDownPosition = mRecyclerView.getChildPosition(mDownView);
+            mDownPosition = mRecyclerView.getChildAdapterPosition(mDownView);
             if (mCallbacks.canDismiss(mDownPosition)) {
                 mVelocityTracker = VelocityTracker.obtain();
                 mVelocityTracker.addMovement(motionEvent);
