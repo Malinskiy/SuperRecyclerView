@@ -1,5 +1,7 @@
 package com.malinskiy.superrecyclerview;
 
+import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.ColorRes;
@@ -13,8 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
-
-import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
 
 public class SuperRecyclerView extends FrameLayout {
 
@@ -224,14 +224,13 @@ public class SuperRecyclerView extends FrameLayout {
 
     private int caseStaggeredGrid(RecyclerView.LayoutManager layoutManager) {
         StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
-        if (lastScrollPositions == null)
+        if (lastScrollPositions == null) {
             lastScrollPositions = new int[staggeredGridLayoutManager.getSpanCount()];
 
                 staggeredGridLayoutManager.findLastVisibleItemPositions(lastScrollPositions);
-                lastVisibleItemPosition = findMax(lastScrollPositions);
-                break;
+            return findMax(lastScrollPositions);
         }
-        return lastVisibleItemPosition;
+        return 0;
     }
 
     private int findMax(int[] lastPositions) {

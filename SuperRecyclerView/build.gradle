@@ -1,15 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
-        minSdkVersion 7
-        targetSdkVersion 22
-        versionCode 4
-        versionName "1.1.1"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -18,8 +19,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:recyclerview-v7:22.2.1'
-    compile 'com.nineoldandroids:library:2.4.0'
+    compile libraries.supportRecyclerView
+    compile libraries.nineOldAndroids
 }
 
 if (JavaVersion.current().isJava8Compatible()) {

@@ -1,17 +1,15 @@
 apply plugin: 'com.android.application'
 
-def SupportVersion = '22.2.1'
-
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
 
     defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
         applicationId "com.malinskiy.superrecyclerview.sample"
-        minSdkVersion 7
-        targetSdkVersion 22
-        versionCode 1
-        versionName "1.0.0"
     }
 
     buildTypes {
@@ -24,9 +22,8 @@ android {
 dependencies {
     compile project(':SuperRecyclerView')
 
-    compile "com.android.support:appcompat-v7:$SupportVersion"
-    compile "com.android.support:cardview-v7:$SupportVersion"
-
-    compile 'com.malinskiy:materialicons:1.0.1'
-    compile 'com.eowise:recyclerview-stickyheaders:0.5.0@aar'
+    compile libraries.supportAppCompat
+    compile libraries.supportCardView
+    compile libraries.materialicons
+    compile libraries.stickyheaders
 }
