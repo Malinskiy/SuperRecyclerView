@@ -1,6 +1,7 @@
 ![](/img/logo_with_name.png)
+[ ![Download](https://api.bintray.com/packages/danielnull/maven/UltraRecyclerView/images/download.svg) ](https://bintray.com/danielnull/maven/UltraRecyclerView/_latestVersion)
 
-##Description
+## Description
 
 This is an attempt to make RecyclerView easier to use.
 
@@ -14,11 +15,17 @@ Features built in:
 
 Please check [CHANGELOG](CHANGELOG.md) for updates.
 
+## Publish
+
+To publish:
+
+`./gradlew clean build generateRelease`
+
 ##Integration *GRADLE*
 
 ```
 dependencies {
-    compile 'co.nullindustries:ultrarecyclerview:1.1.2'
+    compile 'co.nullindustries:ultrarecyclerview:1.1.4'
 }
 ```
 
@@ -163,19 +170,11 @@ Custom attributes supported:
 Commit comments are composed by: `type` `<empty_space>` `message`.
 
 Types:
-* :muscle: : UPDATE
-* :neckbeard: : ADD 
-* :shipit: : REMOVE
-* :clap:: : FIX
-* :umbrella: : CLEAN
-
-Example:
-
-`:muscle: change the dialogs style`: means there was an update over the dialogs style
-`:neckbeard: new dialogs library`: means you added something
-`:clap: showing dialogs crash`: means that you fixed something
-`:clap: showing dialogs crash`: means that you fixed something
-`:clap: showing dialogs crash`: means that you fixed something
+* = : UPDATE
+* + : ADD
+* - : REMOVE
+* F : FIX
+* C : CLEAN
 
 
 ####[Sample java][sample java]
