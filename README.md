@@ -169,12 +169,33 @@ Custom attributes supported:
 
 Commit comments are composed by: `type` `<empty_space>` `message`.
 
+<<<<<<< HEAD
+=======
+Old-Types (DEPRECATED):
+* :muscle: : UPDATE
+* :neckbeard: : ADD 
+* :shipit: : REMOVE
+* :clap:: : FIX
+* :umbrella: : CLEAN
+
+>>>>>>> 0f1ee197c8f061639c89c3937aad2eecaab97d96
 Types:
 * = : UPDATE
 * + : ADD
 * - : REMOVE
 * F : FIX
 * C : CLEAN
+<<<<<<< HEAD
+=======
+
+Example:
+
+`:muscle: change the dialogs style`: means there was an update over the dialogs style
+`:neckbeard: new dialogs library`: means you added something
+`:clap: showing dialogs crash`: means that you fixed something
+`:clap: showing dialogs crash`: means that you fixed something
+`:clap: showing dialogs crash`: means that you fixed something
+>>>>>>> 0f1ee197c8f061639c89c3937aad2eecaab97d96
 
 
 ####[Sample java][sample java]
