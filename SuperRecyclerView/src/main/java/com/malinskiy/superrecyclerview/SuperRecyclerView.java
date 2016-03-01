@@ -1,8 +1,5 @@
 package com.malinskiy.superrecyclerview;
 
-import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
-import com.malinskiy.superrecyclerview.util.FloatUtil;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.ColorRes;
@@ -16,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
+
+import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
+import com.malinskiy.superrecyclerview.util.FloatUtil;
 
 public class SuperRecyclerView extends FrameLayout {
 
@@ -375,6 +375,11 @@ public class SuperRecyclerView extends FrameLayout {
      */
     public void showRecycler() {
         hideProgress();
+        if (mRecycler.getAdapter().getItemCount() == 0 && mEmptyId != 0) {
+            mEmpty.setVisibility(View.VISIBLE);
+        } else if (mEmptyId != 0) {
+            mEmpty.setVisibility(View.GONE);
+        }
         mRecycler.setVisibility(View.VISIBLE);
     }
 
