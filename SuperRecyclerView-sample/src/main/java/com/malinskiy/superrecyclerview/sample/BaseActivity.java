@@ -1,5 +1,10 @@
 package com.malinskiy.superrecyclerview.sample;
 
+import com.malinskiy.superrecyclerview.OnMoreListener;
+import com.malinskiy.superrecyclerview.SuperRecyclerView;
+import com.malinskiy.superrecyclerview.swipe.SparseItemRemoveAnimator;
+import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,11 +12,6 @@ import android.os.Looper;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
-
-import com.malinskiy.superrecyclerview.OnMoreListener;
-import com.malinskiy.superrecyclerview.SuperRecyclerView;
-import com.malinskiy.superrecyclerview.swipe.SparseItemRemoveAnimator;
-import com.malinskiy.superrecyclerview.swipe.SwipeDismissRecyclerViewTouchListener;
 
 import java.util.ArrayList;
 
@@ -34,6 +34,7 @@ public abstract class BaseActivity extends Activity implements SwipeRefreshLayou
         mRecycler = (SuperRecyclerView) findViewById(R.id.list);
         mLayoutManager = getLayoutManager();
         mRecycler.setLayoutManager(mLayoutManager);
+        mRecycler.addItemDecoration(new PaddingItemDecoration());
 
         boolean dismissEnabled = isSwipeToDismissEnabled();
         if (dismissEnabled) {
