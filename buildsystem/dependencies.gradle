@@ -5,10 +5,10 @@ ext.versions = [
         minSdk         : 7,
         targetSdk      : 23,
         compileSdk     : 23,
-        buildTools     : '23.0.2',
+        buildTools     : '23.0.3',
 
         // Library versions
-        supportLibs    : '23.2.0',
+        supportLibs    : '23.3.0',
         nineOldAndroids: '2.4.0',
         materialicons  : '1.0.1',
         stickyheaders  : '0.5.0'
@@ -17,6 +17,7 @@ ext.versions = [
 ext.libraries = [
         supportRecyclerView: "com.android.support:recyclerview-v7:$versions.supportLibs",
         supportAppCompat   : "com.android.support:appcompat-v7:$versions.supportLibs",
+        supportDesign      : "com.android.support:design:$versions.supportLibs",
         supportCardView    : "com.android.support:cardview-v7:$versions.supportLibs",
         supportAnnotations : "com.android.support:support-annotations:$versions.supportLibs",
 

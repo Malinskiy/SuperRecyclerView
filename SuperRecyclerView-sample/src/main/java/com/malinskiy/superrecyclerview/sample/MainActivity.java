@@ -51,5 +51,13 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.button_behavior).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BehaviorActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

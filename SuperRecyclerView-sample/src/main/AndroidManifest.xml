@@ -21,6 +21,7 @@
         <activity android:name=".StaggeredGridActivity"/>
         <activity android:name=".SwipeActivity"/>
         <activity android:name=".HeaderAdapterActivity"/>
+        <activity android:name=".BehaviorActivity"/>
     </application>
 
 </manifest>

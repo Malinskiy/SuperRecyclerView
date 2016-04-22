@@ -44,4 +44,13 @@
         android:layout_below="@+id/button_swipe_sample"
         android:text="Header adapter example"/>
 
+    <Button
+        android:id="@+id/button_behavior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_header_sample"
+        android:text="Behavior example"/>
+
 </RelativeLayout>

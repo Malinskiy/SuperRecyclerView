@@ -23,6 +23,7 @@ dependencies {
     compile project(':SuperRecyclerView')
 
     compile libraries.supportAppCompat
+    compile libraries.supportDesign
     compile libraries.supportCardView
     compile libraries.materialicons
     compile libraries.stickyheaders
