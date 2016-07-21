@@ -3,6 +3,7 @@ package com.malinskiy.superrecyclerview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.ColorRes;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -53,6 +54,8 @@ public class SuperRecyclerView extends FrameLayout {
     private int mProgressId;
 
     private int[] lastScrollPositions;
+
+    private final SuperRecyclerView.RecyclerViewDataObserver mObserver = new SuperRecyclerView.RecyclerViewDataObserver();
 
     public SwipeRefreshLayout getSwipeToRefresh() {
         return mPtrLayout;
@@ -250,6 +253,10 @@ public class SuperRecyclerView extends FrameLayout {
      */
     private void setAdapterInternal(RecyclerView.Adapter adapter, boolean compatibleWithPrevious,
                                     boolean removeAndRecycleExistingViews) {
+        if (mRecycler.getAdapter() != null) {
+            mRecycler.getAdapter().unregisterAdapterDataObserver(mObserver); // Remove the observer before we change to another adapter.
+        }
+
         if (compatibleWithPrevious)
             mRecycler.swapAdapter(adapter, removeAndRecycleExistingViews);
         else
@@ -259,54 +266,56 @@ public class SuperRecyclerView extends FrameLayout {
         mRecycler.setVisibility(View.VISIBLE);
         mPtrLayout.setRefreshing(false);
         if (null != adapter)
-            adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-                @Override
-                public void onItemRangeChanged(int positionStart, int itemCount) {
-                    super.onItemRangeChanged(positionStart, itemCount);
-                    update();
-                }
-
-                @Override
-                public void onItemRangeInserted(int positionStart, int itemCount) {
-                    super.onItemRangeInserted(positionStart, itemCount);
-                    update();
-                }
-
-                @Override
-                public void onItemRangeRemoved(int positionStart, int itemCount) {
-                    super.onItemRangeRemoved(positionStart, itemCount);
-                    update();
-                }
-
-                @Override
-                public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-                    super.onItemRangeMoved(fromPosition, toPosition, itemCount);
-                    update();
-                }
-
-                @Override
-                public void onChanged() {
-                    super.onChanged();
-                    update();
-                }
-
-                private void update() {
-                    mProgress.setVisibility(View.GONE);
-                    mMoreProgress.setVisibility(View.GONE);
-                    isLoadingMore = false;
-                    mPtrLayout.setRefreshing(false);
-                    if (mRecycler.getAdapter().getItemCount() == 0 && mEmptyId != 0) {
-                        mEmpty.setVisibility(View.VISIBLE);
-                    } else if (mEmptyId != 0) {
-                        mEmpty.setVisibility(View.GONE);
-                    }
-                }
-            });
+            adapter.registerAdapterDataObserver(mObserver);
 
         if (mEmptyId != 0) {
             mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0
                                  ? View.GONE
                                  : View.VISIBLE);
+        }
+    }
+
+    private class RecyclerViewDataObserver extends RecyclerView.AdapterDataObserver {
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount) {
+            super.onItemRangeChanged(positionStart, itemCount);
+            update();
+        }
+
+        @Override
+        public void onItemRangeInserted(int positionStart, int itemCount) {
+            super.onItemRangeInserted(positionStart, itemCount);
+            update();
+        }
+
+        @Override
+        public void onItemRangeRemoved(int positionStart, int itemCount) {
+            super.onItemRangeRemoved(positionStart, itemCount);
+            update();
+        }
+
+        @Override
+        public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+            super.onItemRangeMoved(fromPosition, toPosition, itemCount);
+            update();
+        }
+
+        @Override
+        public void onChanged() {
+            super.onChanged();
+            update();
+        }
+
+        private void update() {
+            mProgress.setVisibility(View.GONE);
+            mMoreProgress.setVisibility(View.GONE);
+            isLoadingMore = false;
+            mPtrLayout.setRefreshing(false);
+            if (mRecycler.getAdapter().getItemCount() == 0 && mEmptyId != 0) {
+                mEmpty.setVisibility(View.VISIBLE);
+            } else if (mEmptyId != 0) {
+                mEmpty.setVisibility(View.GONE);
+            }
         }
     }
 
