@@ -2,13 +2,13 @@ ext.versions = [
         code           : 7,
         name           : '1.1.4',
 
-        minSdk         : 7,
-        targetSdk      : 23,
-        compileSdk     : 23,
-        buildTools     : '23.0.3',
+        minSdk         : 9,
+        targetSdk      : 25,
+        compileSdk     : 25,
+        buildTools     : '25.0.1',
 
         // Library versions
-        supportLibs    : '23.3.0',
+        supportLibs    : '25.2.0',
         nineOldAndroids: '2.4.0',
         materialicons  : '1.0.1',
         stickyheaders  : '0.5.0'
