@@ -3,15 +3,15 @@ ext.versions = [
         name           : '1.1.4',
 
         minSdk         : 9,
-        targetSdk      : 25,
+        targetSdk      : 23,
         compileSdk     : 25,
-        buildTools     : '25.0.1',
+        buildTools     : '25.0.2',
 
         // Library versions
-        supportLibs    : '25.2.0',
+        supportLibs    : '25.3.1',
         nineOldAndroids: '2.4.0',
-        materialicons  : '1.0.1',
-        stickyheaders  : '0.5.0'
+        materialicons  : '1.0.2',
+        stickyheaders  : '0.5.2'
 ]
 
 ext.libraries = [
