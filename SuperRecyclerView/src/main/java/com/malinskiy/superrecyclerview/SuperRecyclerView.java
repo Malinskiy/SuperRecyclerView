@@ -182,8 +182,8 @@ public class SuperRecyclerView extends FrameLayout {
         int totalItemCount = layoutManager.getItemCount();
 
         if (((totalItemCount - lastVisibleItemPosition) <= ITEM_LEFT_TO_LOAD_MORE ||
-             (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
-            && !isLoadingMore) {
+                (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
+                && !isLoadingMore) {
 
             isLoadingMore = true;
             if (mOnMoreListener != null) {
@@ -193,20 +193,24 @@ public class SuperRecyclerView extends FrameLayout {
         }
     }
 
+    private void setLayoutManagerType(RecyclerView.LayoutManager layoutManager) {
+//        if (layoutManagerType == null) {
+        if (layoutManager instanceof GridLayoutManager) {
+            layoutManagerType = LAYOUT_MANAGER_TYPE.GRID;
+        } else if (layoutManager instanceof LinearLayoutManager) {
+            layoutManagerType = LAYOUT_MANAGER_TYPE.LINEAR;
+        } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+            layoutManagerType = LAYOUT_MANAGER_TYPE.STAGGERED_GRID;
+        } else {
+            throw new RuntimeException("Unsupported LayoutManager used. Valid ones are LinearLayoutManager, GridLayoutManager and StaggeredGridLayoutManager");
+        }
+//        }
+    }
+
     private int getLastVisibleItemPosition(RecyclerView.LayoutManager layoutManager) {
         int lastVisibleItemPosition = -1;
-        if (layoutManagerType == null) {
-            if (layoutManager instanceof GridLayoutManager) {
-                layoutManagerType = LAYOUT_MANAGER_TYPE.GRID;
-            } else if (layoutManager instanceof LinearLayoutManager) {
-                layoutManagerType = LAYOUT_MANAGER_TYPE.LINEAR;
-            } else if (layoutManager instanceof StaggeredGridLayoutManager) {
-                layoutManagerType = LAYOUT_MANAGER_TYPE.STAGGERED_GRID;
-            } else {
-                throw new RuntimeException("Unsupported LayoutManager used. Valid ones are LinearLayoutManager, GridLayoutManager and StaggeredGridLayoutManager");
-            }
-        }
-
+        if (layoutManagerType == null)
+            setLayoutManagerType(layoutManager);
         switch (layoutManagerType) {
             case LINEAR:
                 lastVisibleItemPosition = ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
@@ -305,8 +309,8 @@ public class SuperRecyclerView extends FrameLayout {
 
         if (mEmptyId != 0) {
             mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0
-                                 ? View.GONE
-                                 : View.VISIBLE);
+                    ? View.GONE
+                    : View.VISIBLE);
         }
     }
 
@@ -315,6 +319,7 @@ public class SuperRecyclerView extends FrameLayout {
      */
     public void setLayoutManager(RecyclerView.LayoutManager manager) {
         mRecycler.setLayoutManager(manager);
+        setLayoutManagerType(manager);
     }
 
     /**
