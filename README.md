@@ -18,7 +18,7 @@ Features built in:
 Just add it to you dependencies
 
 ```
-    compile 'com.malinskiy:superrecyclerview:$version'
+    implementation 'com.malinskiy:superrecyclerview:$version'
 ```
 
 ##Usage
