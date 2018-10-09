@@ -1,6 +1,6 @@
 ext.versions = [
-        code           : 7,
-        name           : '1.1.4',
+        code           : 8,
+        name           : '2.0.0',
 
         minSdk         : 14,
         targetSdk      : 28,
@@ -8,18 +8,17 @@ ext.versions = [
         buildTools     : '28.0.2',
 
         // Library versions
-        supportLibs    : '28.0.0',
-        nineOldAndroids: '2.4.0',
+        androidx    : '1.0.0',
         materialicons  : '1.0.1',
         stickyheaders  : '0.5.0'
 ]
 
 ext.libraries = [
-        supportRecyclerView: "com.android.support:recyclerview-v7:$versions.supportLibs",
-        supportAppCompat   : "com.android.support:appcompat-v7:$versions.supportLibs",
-        supportDesign      : "com.android.support:design:$versions.supportLibs",
-        supportCardView    : "com.android.support:cardview-v7:$versions.supportLibs",
-        supportAnnotations : "com.android.support:support-annotations:$versions.supportLibs",
+        recyclerView       : "androidx.recyclerview:recyclerview:$versions.androidx",
+        appCompat          : "androidx.appcompat:appcompat:$versions.androidx",
+        material           : "com.google.android.material:material:$versions.androidx",
+        cardView           : "androidx.cardview:cardview:$versions.androidx",
+        supportAnnotations : "androidx.annotation:annotation:$versions.androidx",
 
         materialicons      : "com.malinskiy:materialicons:$versions.materialicons",
         stickyheaders      : "com.eowise:recyclerview-stickyheaders:${versions.stickyheaders}@aar"

@@ -22,9 +22,9 @@ android {
 dependencies {
     implementation project(':SuperRecyclerView')
 
-    implementation libraries.supportAppCompat
-    implementation libraries.supportDesign
-    implementation libraries.supportCardView
+    implementation libraries.appCompat
+    implementation libraries.material
+    implementation libraries.cardView
     implementation libraries.materialicons
     implementation libraries.stickyheaders
 }
