@@ -20,11 +20,11 @@ android {
 }
 
 dependencies {
-    compile project(':SuperRecyclerView')
+    implementation project(':SuperRecyclerView')
 
-    compile libraries.supportAppCompat
-    compile libraries.supportDesign
-    compile libraries.supportCardView
-    compile libraries.materialicons
-    compile libraries.stickyheaders
+    implementation libraries.appCompat
+    implementation libraries.material
+    implementation libraries.cardView
+    implementation libraries.materialicons
+    implementation libraries.stickyheaders
 }
