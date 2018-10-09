@@ -1,12 +1,14 @@
 language: android
-jdk: oraclejdk7
+
+jdk:
+  - oraclejdk8
 
 android:
   components:
     - tools
     - platform-tools
-    - build-tools-23.0.3
+    - build-tools-28.0.2
     - extra-android-m2repository
-    - android-23
+    - android-28
 
 script: ./gradlew build

@@ -1,7 +1,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/com.malinskiy/superrecyclerview) [![Build Status](https://travis-ci.org/Malinskiy/SuperRecyclerView.svg?branch=master)](https://travis-ci.org/Malinskiy/SuperRecyclerView) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SuperRecyclerView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1239)
 ==============
 
-##Description
+## Description
 
 This is an attempt to make RecyclerView easier to use.
 
@@ -13,7 +13,7 @@ Features built in:
 - Swipe To Dismiss or Swipe To Remove
 - Sticky headers (via [Eowise][eowise-sticky-headers], see sample)
 
-##Integration
+## Integration
 
 Just add it to you dependencies
 
@@ -21,7 +21,7 @@ Just add it to you dependencies
     compile 'com.malinskiy:superrecyclerview:$version'
 ```
 
-##Usage
+## Usage
 
 -	Use directly SuperRecyclerView:
 
@@ -60,7 +60,7 @@ Just add it to you dependencies
     <attr name="mainLayoutId" format="reference"/>
 ```
 
-##SuperRecyclerView Java Usage
+## SuperRecyclerView Java Usage
 
 ```java
     recycler.setRefreshListener(new SwipeRefreshLayout.OnRefreshListener {
@@ -89,7 +89,7 @@ Just add it to you dependencies
 
 ```
 
-##Scrollbars
+## Scrollbars
 RecyclerView currently doesn't support setting scrollbars from code that's why I can't parse custom attributes.
 You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
 
@@ -109,7 +109,7 @@ You have to use appropriate `mainLayoutId` attribute to have scrollbars visible.
      .../>
 ```
 
-##Swipe layout
+## Swipe layout
 1. You should always assign ```android:id``` to ```@id/recyclerview_swipe```. Note that it's a reference to an already defined id, so don't use ```@+id```
 
 2. The `SwipeLayout` can only have 2 children that are instances of [`ViewGroup`](http://developer.android.com/reference/android/view/ViewGroup.html), e.g. `LinearLayout`, `RelativeLayout`, `GridLayout`
@@ -158,7 +158,7 @@ Custom attributes supported:
 ```
 
 
-####[Sample java][sample java]
+#### [Sample java][sample java]
 
 ## Proguard
 
@@ -166,7 +166,11 @@ Custom attributes supported:
 -dontwarn com.malinskiy.superrecyclerview.SwipeDismissRecyclerViewTouchListener*
 ```
 
-##Thanks
+## Migration to 2.0.0
+
+Last version of library uses **AndroidX** instead of Support Library.
+
+## Thanks
 [Jake Warthon][jake-swipe-to-dismiss] for implementation of SwipeToDismiss via NineOldAndroids
 
 [Eowise][eowise-sticky-headers] for implementation of sticky headers
@@ -175,7 +179,7 @@ Custom attributes supported:
 
 [代码家][swipelayout] for swipe layout implementation
 
-##License
+## License
 
     Copyright (c) 2016 Anton Malinskiy
 
