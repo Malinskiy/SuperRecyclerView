@@ -16,15 +16,14 @@
 
 package com.malinskiy.superrecyclerview.swipe;
 
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import com.nineoldandroids.animation.ValueAnimator;
-
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.os.SystemClock;
 import android.support.annotation.NonNull;
-import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -36,9 +35,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.nineoldandroids.view.ViewHelper.setAlpha;
-import static com.nineoldandroids.view.ViewHelper.setTranslationX;
-import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
+import static android.support.v4.view.ViewCompat.animate;
 
 public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListener {
     public static final int INVALID_POSITION = -1;
@@ -125,12 +122,12 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
     public RecyclerView.OnScrollListener makeScrollListener() {
         return new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 setEnabled(newState != RecyclerView.SCROLL_STATE_DRAGGING);
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
             }
         };
     }
@@ -142,7 +139,7 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
             mViewWidth = mRecyclerView.getWidth();
         }
 
-        switch (MotionEventCompat.getActionMasked(motionEvent)) {
+        switch (motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN: {
                 if (mPaused)  return false;
                 caseMotionActionDown(motionEvent);
@@ -183,13 +180,13 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
             // Cancel ListView's touch (un-highlighting the item)
             MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
             cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
-                    (MotionEventCompat.getActionIndex(motionEvent)
-                            << MotionEventCompat.ACTION_POINTER_INDEX_SHIFT));
+                    (motionEvent.getActionIndex()
+                            << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
             mRecyclerView.onTouchEvent(cancelEvent);
             cancelEvent.recycle();
             if (mSwiping) {
-                setTranslationX(mDownView, deltaX - mSwipingSlop);
-                setAlpha(mDownView, Math.max(0f, Math.min(1f,
+                mDownView.setTranslationX(deltaX - mSwipingSlop);
+                mDownView.setAlpha(Math.max(0f, Math.min(1f,
                         1f - 2f * Math.abs(deltaX) / mViewWidth)));
             }
         }
@@ -218,13 +215,13 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
             final View downView = mDownView; // mDownView gets null'd before animation ends
             final int downPosition = mDownPosition;
             ++mDismissAnimationRefCount;
-            animate(mDownView)
+            mDownView.animate()
                     .translationX(dismissRight ? mViewWidth : -mViewWidth)
                     .alpha(0)
                     .setDuration(mAnimationTime)
-                    .setListener(new com.nineoldandroids.animation.AnimatorListenerAdapter() {
+                    .setListener(new AnimatorListenerAdapter() {
                         @Override
-                        public void onAnimationEnd(com.nineoldandroids.animation.Animator animation) {
+                        public void onAnimationEnd(Animator animation) {
                             super.onAnimationEnd(animation);
                             performDismiss(downView, downPosition);
                         }
@@ -313,8 +310,8 @@ public class SwipeDismissRecyclerViewTouchListener implements View.OnTouchListen
                     ViewGroup.LayoutParams lp;
                     for (PendingDismissData pendingDismiss : mPendingDismisses) {
                         // Reset view presentation
-                        setAlpha(pendingDismiss.view, 1f);
-                        setTranslationX(pendingDismiss.view, 0);
+                        pendingDismiss.view.setAlpha(1f);
+                        pendingDismiss.view.setTranslationX(0);
                         lp = pendingDismiss.view.getLayoutParams();
                         lp.height = originalHeight;
                         pendingDismiss.view.setLayoutParams(lp);

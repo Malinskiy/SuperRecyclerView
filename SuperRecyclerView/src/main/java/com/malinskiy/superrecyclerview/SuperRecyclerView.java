@@ -3,6 +3,7 @@ package com.malinskiy.superrecyclerview;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.ColorRes;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -103,21 +104,21 @@ public class SuperRecyclerView extends FrameLayout {
             return;
         }
         View v = LayoutInflater.from(getContext()).inflate(mSuperRecyclerViewMainLayout, this);
-        mPtrLayout = (SwipeRefreshLayout) v.findViewById(R.id.ptr_layout);
+        mPtrLayout = v.findViewById(R.id.ptr_layout);
         mPtrLayout.setEnabled(false);
 
-        mProgress = (ViewStub) v.findViewById(android.R.id.progress);
+        mProgress = v.findViewById(android.R.id.progress);
 
         mProgress.setLayoutResource(mProgressId);
         mProgressView = mProgress.inflate();
 
-        mMoreProgress = (ViewStub) v.findViewById(R.id.more_progress);
+        mMoreProgress = v.findViewById(R.id.more_progress);
         mMoreProgress.setLayoutResource(mMoreProgressId);
         if (mMoreProgressId != 0)
             mMoreProgressView = mMoreProgress.inflate();
         mMoreProgress.setVisibility(View.GONE);
 
-        mEmpty = (ViewStub) v.findViewById(R.id.empty);
+        mEmpty = v.findViewById(R.id.empty);
         mEmpty.setLayoutResource(mEmptyId);
         if (mEmptyId != 0)
             mEmptyView = mEmpty.inflate();
@@ -142,7 +143,7 @@ public class SuperRecyclerView extends FrameLayout {
         mInternalOnScrollListener = new RecyclerView.OnScrollListener() {
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
                 processOnMore();
@@ -154,7 +155,7 @@ public class SuperRecyclerView extends FrameLayout {
             }
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if (mExternalOnScrollListener != null)
                     mExternalOnScrollListener.onScrollStateChanged(recyclerView, newState);
