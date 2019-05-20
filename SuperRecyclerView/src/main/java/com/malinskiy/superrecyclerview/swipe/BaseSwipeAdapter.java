@@ -1,6 +1,6 @@
 package com.malinskiy.superrecyclerview.swipe;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import com.malinskiy.superrecyclerview.R;

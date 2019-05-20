@@ -1,7 +1,7 @@
 package com.malinskiy.superrecyclerview.swipe;
 
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class SparseItemRemoveAnimator extends DefaultItemAnimator {
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidStudioProjects-SuperRecyclerView.iml" filepath="$PROJECT_DIR$/AndroidStudioProjects-SuperRecyclerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SuperRecyclerView/SuperRecyclerView-SuperRecyclerView.iml" filepath="$PROJECT_DIR$/SuperRecyclerView/SuperRecyclerView-SuperRecyclerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SuperRecyclerView-sample/SuperRecyclerView-sample.iml" filepath="$PROJECT_DIR$/SuperRecyclerView-sample/SuperRecyclerView-sample.iml" />
+    </modules>
+  </component>
+</project>
