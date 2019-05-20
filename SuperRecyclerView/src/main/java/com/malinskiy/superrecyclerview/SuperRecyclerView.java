@@ -2,12 +2,14 @@ package com.malinskiy.superrecyclerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.ColorRes;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+
+import androidx.annotation.ColorRes;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -182,8 +184,8 @@ public class SuperRecyclerView extends FrameLayout {
         int totalItemCount = layoutManager.getItemCount();
 
         if (((totalItemCount - lastVisibleItemPosition) <= ITEM_LEFT_TO_LOAD_MORE ||
-             (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
-            && !isLoadingMore) {
+                (totalItemCount - lastVisibleItemPosition) == 0 && totalItemCount > visibleItemCount)
+                && !isLoadingMore) {
 
             isLoadingMore = true;
             if (mOnMoreListener != null) {
@@ -305,8 +307,8 @@ public class SuperRecyclerView extends FrameLayout {
 
         if (mEmptyId != 0) {
             mEmpty.setVisibility(null != adapter && adapter.getItemCount() > 0
-                                 ? View.GONE
-                                 : View.VISIBLE);
+                    ? View.GONE
+                    : View.VISIBLE);
         }
     }
 
@@ -547,5 +549,13 @@ public class SuperRecyclerView extends FrameLayout {
         LINEAR,
         GRID,
         STAGGERED_GRID
+    }
+
+    public RecyclerView.LayoutManager getLayoutManager() {
+        if (mRecycler != null) {
+            return mRecycler.getLayoutManager();
+        } else {
+            return null;
+        }
     }
 }

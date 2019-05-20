@@ -1,7 +1,7 @@
 package com.malinskiy.superrecyclerview.sample;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class BehaviorActivity extends BaseActivity {
 
